@@ -54,7 +54,13 @@ namespace AppEventos.Controllers
             usuarioRegister.Password = Password;
             usuarioRegister.Activo = true;
             usuarioRegister.Vendedor = false;
-            RNUsuario.Register(usuarioRegister);
+            try
+            {
+                RNUsuario.Register(usuarioRegister);
+            }
+            catch(Exception e) {
+                ViewBag.Error = e;
+            }
             return Login(usuarioRegister.Username, usuarioRegister.Password);
         }
     }

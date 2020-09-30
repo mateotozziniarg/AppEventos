@@ -1,10 +1,11 @@
 ﻿@model AppEventos.Models.UsuarioLogin
 @{
     ViewData["Title"] = "Logueate";
+    ViewData["SubTitle"] = "Registrate";
 }
-<h1>@ViewData["Title"]</h1>
 
 <div class="login-container" style="display: inline-block !important; width: 45%; vertical-align: top;">
+    <h1>@ViewData["Title"]</h1>
     <form method="POST" action="@Url.Action("Login", "Login")" ">
         <div class="form-group">
             <label>Username</label>
@@ -16,7 +17,7 @@
         </div>
         <button type="submit" class="btn btn-primary">Ingresar</button>
         <div class="form-group">
-            <div class="alert alert-danger" id="alertLogin"  @{if(ViewBag.Error == null) { <text> style='display:none' </text>  } }>
+            <div class="alert alert-danger" id="alertLogin" @{if (ViewBag.Error == null) { <text> style='display:none' </text>  } }>
                 @ViewBag.Error
             </div>
         </div>
@@ -24,6 +25,7 @@
 </div>
 
 <div class="register-container" style="display: inline-block !important; width: 45%; vertical-align: top;">
+    <h1>@ViewData["SubTitle"]</h1>
     <form method="POST" action="@Url.Action("Register", "Login")">
         <div class="form-group">
             <label>Nombre de Usuario</label>
