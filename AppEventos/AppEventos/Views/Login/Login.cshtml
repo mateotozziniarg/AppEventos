@@ -15,12 +15,16 @@
             <input name='Password' type="password" class="form-control" id="exampleInputPassword1">
         </div>
         <button type="submit" class="btn btn-primary">Ingresar</button>
-        @ViewBag.Error
+        <div class="form-group">
+            <div class="alert alert-danger" id="alertLogin"  @{if(ViewBag.Error == null) { <text> style='display:none' </text>  } }>
+                @ViewBag.Error
+            </div>
+        </div>
     </form>
 </div>
 
 <div class="register-container" style="display: inline-block !important; width: 45%; vertical-align: top;">
-    <form method="POST">
+    <form method="POST" action="@Url.Action("Register", "Login")">
         <div class="form-group">
             <label>Nombre de Usuario</label>
             <input type="text" class="form-control" name='Username' aria-describedby="emailHelp">
@@ -52,6 +56,6 @@
     }
 
     .form-group {
-        width: 50%;
+        width: 100%;
     }
 </style>

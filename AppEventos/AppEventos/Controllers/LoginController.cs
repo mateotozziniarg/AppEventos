@@ -25,7 +25,7 @@ namespace AppEventos.Controllers
             Usuario userLoged = RNUsuario.Login(usuarioNuevo);
             if (userLoged == null)
             {
-                ViewBag.Error = "Vuelve a intentarlo idiota";
+                ViewBag.Error = "No se ha logrado logearse.";
                 return View();
             }
             else
@@ -55,8 +55,7 @@ namespace AppEventos.Controllers
             usuarioRegister.Activo = true;
             usuarioRegister.Vendedor = false;
             RNUsuario.Register(usuarioRegister);
-            ViewBag.Usuarios = RNUsuario.getUsuarios();
-            return View();
+            return Login(usuarioRegister.Username, usuarioRegister.Password);
         }
     }
 }

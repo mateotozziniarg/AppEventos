@@ -20,7 +20,6 @@ namespace AppEventos.Reglas
         {
             var usuarioEnLista = bdUsuario.Where(usu => usu.Username.Equals(username)).FirstOrDefault();
             return usuarioEnLista;
-
         }
 
         public static Usuario Buscar(int id)

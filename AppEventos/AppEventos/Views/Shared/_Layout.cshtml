@@ -22,8 +22,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                    <li>@Html.ActionLink("Login!", "Login", "Login")</li>
+                    <li style="float:right">@Html.ActionLink("Login!", "Login", "Login")</li>
                 </ul>
                 @if (ViewBag.Usuario != null)
                 {
@@ -41,10 +40,12 @@
         </div>
     </div>
     <div class="container body-content">
-        @RenderBody()
+        <div class="jumbotron">
+            @RenderBody()
+        </div>
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+            <p>&copy; @DateTime.Now.Year - Grupo X ORT Nuevas Tecnologias</p>
         </footer>
     </div>
 
