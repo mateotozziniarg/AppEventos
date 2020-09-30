@@ -30,9 +30,10 @@ namespace AppEventos.Controllers
             }
             else
             {
-                Session["UsuarioLogeado"] = userLoged;
-                ViewBag.Usuario = Session["UsuarioLogeado"];
-                return View("~/Views/Home/Index.cshtml");
+                //Session["UsuarioLogeado"] = userLoged;
+                //ViewBag.Usuario = Session["UsuarioLogeado"];
+                SessionHelper.UsuarioLogueado = userLoged;
+                return RedirectToAction("Index", "Home");
             }
         }
         public ActionResult Logout() {
@@ -57,11 +58,14 @@ namespace AppEventos.Controllers
             try
             {
                 RNUsuario.Register(usuarioRegister);
+                SessionHelper.UsuarioLogueado = usuarioRegister;
+                return RedirectToAction("Index", "Home");
             }
             catch(Exception e) {
                 ViewBag.Error = e;
+                return View("Login");
             }
-            return Login(usuarioRegister.Username, usuarioRegister.Password);
+            //return Login(usuarioRegister.Username, usuarioRegister.Password);
         }
     }
 }
