@@ -9,8 +9,8 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body style="padding-top: 0 ">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="/Home/Index">Navbar w/ text</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/Home/Index">App Eventos</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -18,17 +18,17 @@
             <ul class="nav navbar-nav">
                 <li class="nav-link"><a class="navbar-text" href="/Home/Index">Home</a></li>
             </ul>
-            <span class="navbar-text" style="margin-left:auto">
+            <span class="navbar-text" style="margin: 0 50px 0 auto">
                 @if (Session["UsuarioLogeado"] != null)
                 {
                     ViewBag.Usuario = Session["UsuarioLogeado"];
                     <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Hola @ViewBag.Usuario.Nombre
                         </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="/Usuario/Perfil">Mi Perfil</a>
-                            <a class="dropdown-item" href="/Login/Logout">Cerrar Sesion</a>
+                        <div class="dropdown-menu dropd" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" style="color:black" href="/Usuario/Perfil">Mi Perfil</a>
+                            <a class="dropdown-item" style="color:black" href="/Login/Logout">Cerrar Sesion</a>
                         </div>
                     </div>
                 }
@@ -40,9 +40,7 @@
         </div>
     </nav>
     <div class="container body-content">
-        <div class="jumbotron">
-            @RenderBody()
-        </div>
+        @RenderBody()
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - Grupo X ORT Nuevas Tecnologias</p>
