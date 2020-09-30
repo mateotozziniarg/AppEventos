@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Perfil";
+}
+<h1>@ViewData["Title"]</h1>
+
+
+@ViewBag.Usuario.Username -
+@ViewBag.Usuario.Nombre - 
+@ViewBag.Usuario.Apellido - 
+@ViewBag.Usuario.Email - 
+@ViewBag.Usuario.Password
+
+
+<style>
+    .login-container > input {
+        display: block;
+        margin: 20px
+    }
+
+    .form-group {
+        width: 50%;
+    }
+</style>
