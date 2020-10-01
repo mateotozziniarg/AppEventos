@@ -1,19 +1,26 @@
-﻿@{
-    ViewData["Title"] = "Perfil";
-}
+﻿@{ ViewData["Title"] = "Mi Perfil"; }
+<h1>@ViewData["Title"]</h1>
 
+<!--
+//@ViewBag.Usuario.Username -
+//@ViewBag.Usuario.Nombre -
+//@ViewBag.Usuario.Apellido -
+//@ViewBag.Usuario.Email -
+//@ViewBag.Usuario.Password
+    -->
 
 <div class="main-layout">
     <div class="card">
         <div class="card-header">
-            <h1>@ViewData["Title"]</h1>
+            <h3><strong>Datos de usuario</strong></h3>
         </div>
         <div class="card-body">
-            @AppEventos.Controllers.SessionHelper.UsuarioLogueado.Nombre
-            @AppEventos.Controllers.SessionHelper.UsuarioLogueado.Apellido -
-            @AppEventos.Controllers.SessionHelper.UsuarioLogueado.Username -
-            @AppEventos.Controllers.SessionHelper.UsuarioLogueado.Nombre -
-            @AppEventos.Controllers.SessionHelper.UsuarioLogueado.Email -
+            <p class="card-text"><h4><strong>Nombre: </strong> @ViewBag.Usuario.Nombre</h4></p>
+            <p class="card-text"><h4><strong>Apellido: </strong>@ViewBag.Usuario.Apellido</h4></p>
+            <p class="card-text"><h4><strong>Nombre de usuario: </strong>@ViewBag.Usuario.Username</h4></p>
+            <p class="card-text"><h4><strong>Email:</strong> @ViewBag.Usuario.Email</h4></p>
+
+            <a href="~/Home/Index" class="btn btn-primary">Volver</a>
         </div>
     </div>
 </div>
