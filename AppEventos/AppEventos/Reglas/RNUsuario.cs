@@ -16,9 +16,14 @@ namespace AppEventos.Reglas
             return bdUsuario;
         }
 
-        public static Usuario getByUsername(String username) 
+        public static Usuario getByUsername(String username)
         {
             var usuarioEnLista = bdUsuario.Where(usu => usu.Username.Equals(username)).FirstOrDefault();
+            return usuarioEnLista;
+        }
+        public static Usuario getByEmail(String email)
+        {
+            var usuarioEnLista = bdUsuario.Where(usu => usu.Email.Equals(email)).FirstOrDefault();
             return usuarioEnLista;
         }
 
@@ -29,6 +34,7 @@ namespace AppEventos.Reglas
         }
         public static void Register(Usuario usuario)
         {
+
             usuario.Id = bdUsuario.Count + 1;
             bdUsuario.Add(usuario);
         }

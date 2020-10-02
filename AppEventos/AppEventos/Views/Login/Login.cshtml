@@ -3,52 +3,63 @@
     ViewData["Title"] = "Logueate";
     ViewData["SubTitle"] = "Registrate";
 }
-
-<div class="login-container" style="display: inline-block !important; width: 45%; vertical-align: top;">
-    <h1>@ViewData["Title"]</h1>
-    <form method="POST" action="@Url.Action("Login", "Login")" ">
-        <div class="form-group">
-            <label>Username</label>
-            <input type="text" class="form-control" name='Username'>
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input name='Password' type="password" class="form-control" id="exampleInputPassword1">
-        </div>
-        <button type="submit" class="btn btn-primary">Ingresar</button>
-        <div class="form-group">
-            <div class="alert alert-danger" id="alertLogin" @{if (ViewBag.Error == null) { <text> style='display:none' </text>  } }>
-                @ViewBag.Error
+<div class="row">
+    <div class="login-container col-12 col-md-6" style="display: inline-block !important; width: 45%; vertical-align: top;">
+        <h1>@ViewData["Title"]</h1>
+        <form method="POST" action="@Url.Action("Login", "Login")" ">
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" class="form-control" name='Username'>
             </div>
-        </div>
-    </form>
-</div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input name='Password' type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <button type="submit" class="btn btn-primary">Ingresar</button>
+            <div class="form-group">
+                <div class="alert alert-danger" id="alertLogin" @{if (ViewBag.Error == null) { <text> style='display:none' </text>  } }>
+                    @ViewBag.Error
+                </div>
+            </div>
+        </form>
+    </div>
 
-<div class="register-container" style="display: inline-block !important; width: 45%; vertical-align: top;">
-    <h1>@ViewData["SubTitle"]</h1>
-    <form method="POST" action="@Url.Action("Register", "Login")">
-        <div class="form-group">
-            <label>Nombre de Usuario</label>
-            <input type="text" class="form-control" name='Username' aria-describedby="emailHelp">
-        </div>
-        <div class="form-group">
-            <label>Nombre</label>
-            <input type="text" class="form-control" name='Nombre'>
-        </div>
-        <div class="form-group">
-            <label>Apellido</label>
-            <input type="text" class="form-control" name='Apellido'>
-        </div>
-        <div class="form-group">
-            <label>Email</label>
-            <input type="email" class="form-control" name='Email' aria-describedby="emailHelp">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input name='Password' type="password" class="form-control" id="exampleInputPassword1">
-        </div>
-        <button type="submit" class="btn btn-primary" name="Register">Registrarse</button>
-    </form>
+    <div class="register-container col-12 col-md-6" style="display: inline-block !important; width: 45%; vertical-align: top;">
+        <h1>@ViewData["SubTitle"]</h1>
+        <form method="POST" action="@Url.Action("Register", "Login")">
+            <div class="form-group">
+                <label>Nombre de Usuario</label>
+                <input required type="text" class="form-control" name='Username'>
+            </div>
+            <div class="form-group">
+                <label>Nombre</label>
+                <input required type="text" class="form-control" name='Nombre'>
+            </div>
+            <div class="form-group">
+                <label>Apellido</label>
+                <input type="text" class="form-control" name='Apellido'>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input required type="email" class="form-control" name='Email' aria-describedby="emailHelp">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input required name='Password' type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <button type="submit" class="btn btn-primary" name="Register">Registrarse</button>
+            <div class="form-group">
+                <div class="alert alert-danger" id="alertLogin" @{if (ViewData["EmailUsed"] == null) { <text> style='display:none' </text>  } }>
+                    @ViewData["EmailUsed"]
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="alert alert-danger" id="alertLogin" @{if (ViewData["UsernameUsed"] == null) { <text> style='display:none' </text>  } }>
+                    @ViewData["UsernameUsed"]
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
 
 <style>

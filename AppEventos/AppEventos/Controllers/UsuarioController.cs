@@ -14,10 +14,19 @@ namespace AppEventos.Controllers
     {
         public ActionResult Perfil()
         {
-            if (Session["UsuarioLogeado"] == null) {
+            if (Session["UsuarioLogeado"] == null)
+            {
                 return View("~/Views/Login/Login.cshtml");
             }
             ViewBag.Usuario = Session["UsuarioLogeado"];
+            return View();
+        }
+        public ActionResult EditarPerfil()
+        {
+            if (Session["UsuarioLogeado"] == null)
+            {
+                return View("~/Views/Login/Login.cshtml");
+            }
             return View();
         }
     }

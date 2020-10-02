@@ -47,6 +47,10 @@ namespace AppEventos.Controllers
         [HttpPost]
         public ActionResult Register(string Email, string Nombre, string Apellido, string Username, string Password)
         {
+            var emailUsed = RNUsuario.getByEmail(Email);
+            var usernameUsed = RNUsuario.getByUsername(Username);
+            if ( emailUsed != null) { ViewData["EmailUsed"] = "El correo electronico ya esta en uso"; return View("Login"); }
+            if ( usernameUsed != null ) { ViewData["UsernameUsed"] = "El usuario ya esta en uso"; return View("Login"); }
             Usuario usuarioRegister = new Usuario();
             usuarioRegister.Email = Email;
             usuarioRegister.Nombre = Nombre;
