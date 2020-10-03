@@ -48,7 +48,7 @@ namespace AppEventos
                 Password = "123",
                 Username = "ldeni",
                 Nombre = "Lucas",
-                Email = "Lucas@gmail.com",
+                Email = "LucasDeni@gmail.com",
                 Apellido = "Denicola",
                 Descripcion = "Vendedor de cursos online de Anime.",
                 Vendedor = true
