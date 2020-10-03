@@ -2,18 +2,6 @@
     }
 <h1>@ViewData["Title"]</h1>
 
-<!--
-//@ViewBag.Usuario.Username -
-//@ViewBag.Usuario.Nombre -
-//@ViewBag.Usuario.Apellido -
-//@ViewBag.Usuario.Email -
-//@ViewBag.Usuario.Password
-@AppEventos.Controllers.SessionHelper.UsuarioLogueado.Nombre
-@AppEventos.Controllers.SessionHelper.UsuarioLogueado.Apellido -
-@AppEventos.Controllers.SessionHelper.UsuarioLogueado.Username -
-@AppEventos.Controllers.SessionHelper.UsuarioLogueado.Nombre -
-@AppEventos.Controllers.SessionHelper.UsuarioLogueado.Email -
-    -->
 
 <div class="main-layout">
     <div class="card">
@@ -26,6 +14,7 @@
             <p class="card-text"><h4><strong>Apellido: </strong>@AppEventos.Controllers.SessionHelper.UsuarioLogueado.Apellido   </h4></p>
             <p class="card-text"><h4><strong>Nombre de usuario: </strong>@AppEventos.Controllers.SessionHelper.UsuarioLogueado.Username</h4></p>
             <p class="card-text"><h4><strong>Email:</strong> @AppEventos.Controllers.SessionHelper.UsuarioLogueado.Email</h4></p>
+            <p class="card-text"><h4><strong>Descripcion:</strong> @AppEventos.Controllers.SessionHelper.UsuarioLogueado.Descripcion</h4></p>
 
             <a href="~/Home/Index" class="btn btn-primary">Volver</a>
         </div>

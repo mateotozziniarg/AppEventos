@@ -49,6 +49,17 @@ namespace AppEventos.Reglas
             }
         }
 
+        public static bool SaveUser(Usuario usuario) {
+            try
+            {
+                bdUsuario[bdUsuario.FindIndex(x => x.Username.Equals(usuario.Username))] = usuario;
+                return true;
+            }
+            catch {
+                return false;
+            }
+        }
+
 
     }
 }

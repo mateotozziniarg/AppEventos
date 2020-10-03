@@ -5,32 +5,45 @@
     <div class="card">
         <div class="card-header">
             <h3><strong>Editar datos de usuario</strong></h3>
+            <button class="btn btn-info" style="float:right"> Deseo cambiar mi contraseña</button>
         </div>
         <div class="card-body">
-            <form>
-                <div class="form-group">
-                    <label>Nombre</label>
-                    <input value="@AppEventos.Controllers.SessionHelper.UsuarioLogueado.Nombre" type="text" class="form-control" name='Nombre'>
+            <div class="alert alert-success" role="alert" @{if (@ViewBag.Success == null) { <text>style="display:none"</text> } }>
+                @ViewBag.Success
+            </div>
+            <div class="alert alert-danger" role="alert" @{if (@ViewBag.Error == null) { <text>style="display:none"</text> } }>
+                @ViewBag.Error
+            </div>
+            <form method="POST">
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label>Username</label>
+                        <input disabled value="@AppEventos.Controllers.SessionHelper.UsuarioLogueado.Username" type="text" class="form-control" name='Username'>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>Email</label>
+                        <input disabled value="@AppEventos.Controllers.SessionHelper.UsuarioLogueado.Email" type="text" class="form-control" name='Email'>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>Nombre</label>
+                        <input required value="@AppEventos.Controllers.SessionHelper.UsuarioLogueado.Nombre" type="text" class="form-control" name='Nombre'>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>Apellido</label>
+                        <input required value="@AppEventos.Controllers.SessionHelper.UsuarioLogueado.Apellido" type="text" class="form-control" name='Apellido'>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>Apellido</label>
-                    <input value="@AppEventos.Controllers.SessionHelper.UsuarioLogueado.Apellido" type="text" class="form-control" name='Apellido'>
+                <div class="form-row">
                 </div>
-                <div class="form-group">
-                    <label>Username</label>
-                    <input disabled value="@AppEventos.Controllers.SessionHelper.UsuarioLogueado.Username" type="text" class="form-control" name='Username'>
-                </div>
-                <div class="form-group">
-                    <label>Email</label>
-                    <input disabled value="@AppEventos.Controllers.SessionHelper.UsuarioLogueado.Email" type="text" class="form-control" name='Email'>
-                </div>
-                @*<div class="form-group">
+                <div class="form-group" @{if (!@AppEventos.Controllers.SessionHelper.UsuarioLogueado.Vendedor) { <text> style='display:none;' </text>  } }>
                     <label>Descripcion</label>
-                    <input disabled value="@AppEventos.Controllers.SessionHelper.UsuarioLogueado.Descripcion" type="textarea" class="form-control" name='Email'>
-                </div>*@
+                    <textarea class="form-control" aria-label="With textarea" style="max-width:100%;" value="" name="Descripcion">@AppEventos.Controllers.SessionHelper.UsuarioLogueado.Descripcion</textarea>
+                </div>
+                <div class="form-group">
+                    <a href="~/Usuario/Perfil"><button type="button" class="btn btn-danger">Salir sin guardar</button></a>
+                    <button type="submit" class="btn btn-success">Guardar</button>
+                </div>
             </form>
-
-            <a href="~/Usuario/Perfil" class="btn btn-primary"><button type="button" class="btn btn-primary">Salir sin guardar</button></a>
         </div>
     </div>
 </div>

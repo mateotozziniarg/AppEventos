@@ -24,7 +24,9 @@ namespace AppEventos
                 Username = "dguillermi",
                 Nombre = "Damian",
                 Email = "123@gmail.com",
-                Apellido = "Guillermi"
+                Apellido = "Guillermi",
+                Descripcion = "Vendedor de cursos online de programacion.",
+                Vendedor = true
             }
                 );
             Reglas.RNUsuario.Register(new Entidades.Usuario()
@@ -34,7 +36,9 @@ namespace AppEventos
                 Username = "mtozzini",
                 Nombre = "Mateo",
                 Email = "123@gmail.com",
-                Apellido = "Tozzini"
+                Apellido = "Tozzini",
+                Descripcion = "Vendedor de cursos online de cocina.",
+                Vendedor = true
             }
                 );
 
@@ -45,7 +49,9 @@ namespace AppEventos
                 Username = "ldeni",
                 Nombre = "Lucas",
                 Email = "123@gmail.com",
-                Apellido = "Denicola"
+                Apellido = "Denicola",
+                Descripcion = "Vendedor de cursos online de Anime.",
+                Vendedor = true
             }
                 );
 
@@ -56,7 +62,9 @@ namespace AppEventos
                 Username = "efleire",
                 Nombre = "Ezequiel",
                 Email = "123@gmail.com",
-                Apellido = "Fleire"
+                Apellido = "Fleire",
+                Descripcion = "Vendedor de cursos online de guitarra.",
+                Vendedor = true
             }
                 );
         }

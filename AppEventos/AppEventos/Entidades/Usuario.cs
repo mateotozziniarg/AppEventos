@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppEventos.Reglas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,7 +16,14 @@ namespace AppEventos.Entidades
         public bool Activo { get; set; }
         public bool Vendedor { get; set; }
         public String Username { get; set; }
+        public String Descripcion { get; set; }
 
+
+        public bool Save()
+        {
+            var rsp = RNUsuario.SaveUser(this);
+            return rsp;
+        }
 
     }
 }

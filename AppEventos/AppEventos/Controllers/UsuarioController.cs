@@ -32,8 +32,19 @@ namespace AppEventos.Controllers
         [HttpPost]
         public ActionResult EditarPerfil(string Nombre, string Apellido, string Descripcion) {
 
-
-            return null;
+            Usuario user = RNUsuario.Buscar(SessionHelper.UsuarioLogueado.Id);
+            user.Nombre = Nombre;
+            user.Apellido = Apellido;
+            user.Descripcion = Descripcion;
+            var rsp = user.Save();
+            if (rsp)
+            {
+                ViewBag.Success = "Guardado con éxito";
+            }
+            else {
+                ViewBag.Error = "Surgio un error al intentar guardar los cambios.";
+            }
+            return View();
         }
     }
 }
