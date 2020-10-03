@@ -29,5 +29,11 @@ namespace AppEventos.Controllers
             }
             return View();
         }
+        [HttpPost]
+        public ActionResult EditarPerfil(string Nombre, string Apellido, string Descripcion) {
+
+
+            return null;
+        }
     }
 }

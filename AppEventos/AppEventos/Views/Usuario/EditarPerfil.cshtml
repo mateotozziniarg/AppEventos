@@ -9,11 +9,11 @@
         <div class="card-body">
             <form>
                 <div class="form-group">
-                    <label>Username</label>
+                    <label>Nombre</label>
                     <input value="@AppEventos.Controllers.SessionHelper.UsuarioLogueado.Nombre" type="text" class="form-control" name='Nombre'>
                 </div>
                 <div class="form-group">
-                    <label>Username</label>
+                    <label>Apellido</label>
                     <input value="@AppEventos.Controllers.SessionHelper.UsuarioLogueado.Apellido" type="text" class="form-control" name='Apellido'>
                 </div>
                 <div class="form-group">
@@ -21,12 +21,16 @@
                     <input disabled value="@AppEventos.Controllers.SessionHelper.UsuarioLogueado.Username" type="text" class="form-control" name='Username'>
                 </div>
                 <div class="form-group">
-                    <label>Username</label>
+                    <label>Email</label>
                     <input disabled value="@AppEventos.Controllers.SessionHelper.UsuarioLogueado.Email" type="text" class="form-control" name='Email'>
                 </div>
+                @*<div class="form-group">
+                    <label>Descripcion</label>
+                    <input disabled value="@AppEventos.Controllers.SessionHelper.UsuarioLogueado.Descripcion" type="textarea" class="form-control" name='Email'>
+                </div>*@
             </form>
 
-            <a href="~/Usuario/Perfil" class="btn btn-primary">Volver</a>
+            <a href="~/Usuario/Perfil" class="btn btn-primary"><button type="button" class="btn btn-primary">Salir sin guardar</button></a>
         </div>
     </div>
 </div>
