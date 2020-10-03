@@ -52,7 +52,7 @@ namespace AppEventos.Reglas
         public static bool SaveUser(Usuario usuario) {
             try
             {
-                bdUsuario[bdUsuario.FindIndex(x => x.Username.Equals(usuario.Username))] = usuario;
+                bdUsuario[bdUsuario.FindIndex(x => x.Id == usuario.Id)] = usuario;
                 return true;
             }
             catch {
