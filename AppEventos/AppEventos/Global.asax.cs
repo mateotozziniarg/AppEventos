@@ -23,7 +23,7 @@ namespace AppEventos
                 Password = "123",
                 Username = "dguillermi",
                 Nombre = "Damian",
-                Email = "123@gmail.com",
+                Email = "Damian@gmail.com",
                 Apellido = "Guillermi",
                 Descripcion = "Vendedor de cursos online de programacion.",
                 Vendedor = true
@@ -35,7 +35,7 @@ namespace AppEventos
                 Password = "123",
                 Username = "mtozzini",
                 Nombre = "Mateo",
-                Email = "123@gmail.com",
+                Email = "Mateo@gmail.com",
                 Apellido = "Tozzini",
                 Descripcion = "Vendedor de cursos online de cocina.",
                 Vendedor = true
@@ -48,7 +48,7 @@ namespace AppEventos
                 Password = "123",
                 Username = "ldeni",
                 Nombre = "Lucas",
-                Email = "123@gmail.com",
+                Email = "Lucas@gmail.com",
                 Apellido = "Denicola",
                 Descripcion = "Vendedor de cursos online de Anime.",
                 Vendedor = true
@@ -61,7 +61,7 @@ namespace AppEventos
                 Password = "123",
                 Username = "efleire",
                 Nombre = "Ezequiel",
-                Email = "123@gmail.com",
+                Email = "Ezequiel@gmail.com",
                 Apellido = "Fleire",
                 Descripcion = "Vendedor de cursos online de guitarra.",
                 Vendedor = true
