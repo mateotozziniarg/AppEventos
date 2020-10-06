@@ -60,6 +60,13 @@ namespace AppEventos.Reglas
             }
         }
 
+        public static bool ChangePassword(Usuario usuario, String NewPassword) {
+            if (NewPassword == "" || usuario == null) { return false; }
+            usuario.Password = NewPassword;
+            bdUsuario[bdUsuario.FindIndex(x => x.Id == usuario.Id)] = usuario;
+            return true;
+        }
+
 
     }
 }

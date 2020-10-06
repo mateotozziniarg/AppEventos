@@ -1,0 +1,44 @@
+﻿@{ ViewData["Title"] = "Cambiar Contraseña";
+}
+<h1>@ViewData["Title"]</h1>
+<div class="main-layout">
+    <div class="card">
+        <div class="card-body">
+            <div class="alert alert-success" role="alert" @{if (@ViewBag.Success == null) { <text>style="display:none"</text> } }>
+                @ViewBag.Success
+            </div>
+            <div class="alert alert-danger" role="alert" @{if (@ViewBag.Error == null) { <text>style="display:none"</text> } }>
+                @ViewBag.Error
+            </div>
+            <form method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Contraseña actual</label>
+                        <input type="password" class="form-control" name='Password'>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nueva contraseña</label>
+                        <input type="password" class="form-control" name='NewPassword'>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Repetir nueva contraseña</label>
+                        <input type="password" class="form-control" name='NewPasswordConfirm'>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <a href="~/Usuario/EditarPerfil"><button type="button" class="btn btn-danger">Salir sin guardar</button></a>
+                    <button type="submit" class="btn btn-success">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<style>
+</style>

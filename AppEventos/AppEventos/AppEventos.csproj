@@ -284,6 +284,7 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Usuario\EditarPerfil.cshtml" />
+    <Content Include="Views\Usuario\CambiarPass.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -25,5 +25,11 @@ namespace AppEventos.Entidades
             return rsp;
         }
 
+        public bool ChangePassword(String NewPassword) {
+            var rsp = RNUsuario.ChangePassword(this, NewPassword);
+            return rsp;
+        }
+
+
     }
 }
