@@ -77,6 +77,7 @@ namespace AppEventos.Controllers
             else if(NewPassword.Equals(SessionHelper.UsuarioLogueado.Password))
             {
                 ViewBag.Error = "No puede cambiar su contraseña por la misma.";
+                return View();
             }
 
             Usuario user = RNUsuario.Buscar(SessionHelper.UsuarioLogueado.Id);

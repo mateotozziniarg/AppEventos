@@ -17,11 +17,13 @@ namespace AppEventos.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Login(string Username, string Password)
+        public ActionResult Login(string username, string password)
         {
-            UsuarioLogin usuarioNuevo = new UsuarioLogin();
-            usuarioNuevo.Username = Username;
-            usuarioNuevo.Password = Password;
+            UsuarioLogin usuarioNuevo = new UsuarioLogin
+            {
+                Username = username,
+                Password = password
+            };
             Usuario userLoged = RNUsuario.Login(usuarioNuevo);
             if (userLoged == null)
             {

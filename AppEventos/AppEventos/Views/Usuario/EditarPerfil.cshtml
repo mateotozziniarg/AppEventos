@@ -16,39 +16,44 @@
             </div>
             <form method="POST">
                 <div class="form-row">
-                    <div class="form-group col-md-3">
-                        <label>Username</label>
-                        <input disabled value="@AppEventos.Controllers.SessionHelper.UsuarioLogueado.Username" type="text" class="form-control" name='Username'>
+                    <div class="form-group col-12">
+                        <label class="lblForm">Username</label>
+                        <input disabled value="@AppEventos.Controllers.SessionHelper.UsuarioLogueado.Username" type="text" class="form-control inputForm" name='Username'>
                     </div>
-                    <div class="form-group col-md-3">
-                        <label>Email</label>
-                        <input disabled value="@AppEventos.Controllers.SessionHelper.UsuarioLogueado.Email" type="text" class="form-control" name='Email'>
+                    <div class="form-group col-12">
+                        <label class="lblForm">Email</label>
+                        <input disabled value="@AppEventos.Controllers.SessionHelper.UsuarioLogueado.Email" type="text" class="form-control inputForm" name='Email'>
                     </div>
-                    <div class="form-group col-md-3">
-                        <label>Nombre</label>
-                        <input required value="@AppEventos.Controllers.SessionHelper.UsuarioLogueado.Nombre" type="text" class="form-control" name='Nombre'>
+                    <div class="form-group col-12">
+                        <label class="lblForm">Nombre</label>
+                        <input required value="@AppEventos.Controllers.SessionHelper.UsuarioLogueado.Nombre" type="text" class="form-control inputForm" name='Nombre'>
                     </div>
-                    <div class="form-group col-md-3">
-                        <label>Apellido</label>
-                        <input required value="@AppEventos.Controllers.SessionHelper.UsuarioLogueado.Apellido" type="text" class="form-control" name='Apellido'>
+                    <div class="form-group col-12">
+                        <label class="lblForm">Apellido</label>
+                        <input required value="@AppEventos.Controllers.SessionHelper.UsuarioLogueado.Apellido" type="text" class="form-control inputForm" name='Apellido'>
                     </div>
                 </div>
                 <div class="form-row">
                 </div>
                 <div class="form-group" @{if (!@AppEventos.Controllers.SessionHelper.UsuarioLogueado.Vendedor) { <text> style='display:none;' </text>  } }>
-                    <label>Descripcion</label>
-                    <textarea class="form-control" aria-label="With textarea" style="max-width:100%;" value="" name="Descripcion">@AppEventos.Controllers.SessionHelper.UsuarioLogueado.Descripcion</textarea>
+                    <label class="lblForm">Descripcion</label>
+                    <textarea class="form-control inputForm" aria-label="With textarea" style="max-width:80%;vertical-align:top;height: 150px;" value="" name="Descripcion">@AppEventos.Controllers.SessionHelper.UsuarioLogueado.Descripcion</textarea>
                 </div>
                 <div class="form-group">
-                    <a href="~/Usuario/Perfil"><button type="button" class="btn btn-danger">Salir sin guardar</button></a>
-                    <button type="submit" class="btn btn-success">Guardar</button>
+                    <a href="~/Usuario/Perfil"><button type="button" class="btn btn-secondary">Salir sin guardar</button></a>
+                    <button type="submit" class="btn btn-success" style="float:right">Guardar</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
 
-
-
 <style>
+    .inputForm {
+        display: inline;
+    }
+    .lblForm {
+        width:100px;
+        text-align:center;
+    }
 </style>

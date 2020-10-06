@@ -7,6 +7,8 @@
     <div class="card">
         <div class="card-header">
             <h3>Datos de usuario</h3>
+            <a href="~/Usuario/EditarPerfil"><button class="btn btn-primary">Editar datos de perfil</button> </a>
+            <a href="~/Usuario/CambiarPass"><button class="btn btn-info" style="float:right"> Deseo cambiar mi contraseña</button></a>
         </div>
         <div class="container">
             <div class="form-row">
@@ -36,43 +38,11 @@
                 </div>
             </div>
         </div>
-            <div class="card-body">
-                <a href="~/Usuario/EditarPerfil"><button class="btn btn-primary">Editar datos de perfil</button> </a>
-                <a href="~/Home/Index" class="btn btn-primary">Volver</a>
-            </div>
+        <div class="card-body">
+            <a href="~/Home/Index" class="btn btn-secondary">Volver</a>
+        </div>
         </div>
     </div>
 
 <style>
-    label {
-        color: darkslategray;
-        font-weight: bold;
-        
-    }
-
-    h1 {
-        color: darkslategray;
-        font-weight: bold;
-    }
-
-    h3 {
-        color: darkslategray;
-        font-weight: bold;
-    }
-
-    div.container {
-        padding-top: 15px;
-    }
-
-    input.form-control:read-only {
-        background-color: white;
-    }
-
-    textarea.form-control:read-only {
-        background-color: white;
-    }
-
-    textarea {
-        resize: none;
-    }
 </style>
