@@ -56,8 +56,20 @@ namespace AppEventos.Reglas
 
         public static usuario Buscar(int id)
         {
-            //var usuarioEnLista = bdUsuario.Where(usu => usu.Id == id).FirstOrDefault();
-            return null;
+            try
+            {
+                using (eventsEntities1 db = new eventsEntities1())
+                {
+                    db.Database.Connection.Open();
+                    usuario user = db.usuario.ToList().Where(usu => usu.Id == id).FirstOrDefault();
+                    db.Database.Connection.Close();
+                    return user;
+                }
+            }
+            catch
+            {
+                return null;
+            }
         }
         public static void Register(usuario user)
         {
@@ -106,7 +118,18 @@ namespace AppEventos.Reglas
         {
             try
             {
-                //bdUsuario[bdUsuario.FindIndex(x => x.Id == usuario.Id)] = usuario;
+                using (eventsEntities1 db = new eventsEntities1())
+                {
+                    db.Database.Connection.Open();
+                    var user = db.usuario.SingleOrDefault(x => x.Id == usuario.Id);
+                    if (user != null) {
+                        user.Nombre = usuario.Nombre;
+                        user.Apellido = usuario.Apellido;
+                        user.Descripcion = usuario.Descripcion;
+                        db.SaveChanges();
+                    }
+                    db.Database.Connection.Close();
+                }
                 return true;
             }
             catch

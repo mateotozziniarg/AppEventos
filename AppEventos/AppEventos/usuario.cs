@@ -9,6 +9,7 @@
 
 namespace AppEventos
 {
+    using AppEventos.Reglas;
     using System;
     using System.Collections.Generic;
     
@@ -25,7 +26,8 @@ namespace AppEventos
         public string Descripcion { get; set; }
         public bool Save()
         {
-            return false;
+            var success = RNUsuario.SaveUser(this);
+            return success;
         }
         public bool ChangePassword(string password)
         {

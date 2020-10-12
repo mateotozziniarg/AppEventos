@@ -40,6 +40,7 @@ namespace AppEventos.Controllers
             if (rsp)
             {
                 ViewBag.Success = "Guardado con éxito";
+                SessionHelper.UsuarioLogueado = user;
             }
             else {
                 ViewBag.Error = "Surgio un error al intentar guardar los cambios.";
