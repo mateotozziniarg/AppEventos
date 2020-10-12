@@ -1,5 +1,4 @@
-﻿using AppEventos.Entidades;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,10 +8,10 @@ namespace AppEventos.Controllers
 {
     public static class  SessionHelper 
     {
-        public static Usuario UsuarioLogueado {
+        public static usuario UsuarioLogueado {
             get
             {
-                return (Usuario)HttpContext.Current.Session["UsuarioLogeado"];
+                return (usuario)HttpContext.Current.Session["UsuarioLogeado"];
             }
             set
             {

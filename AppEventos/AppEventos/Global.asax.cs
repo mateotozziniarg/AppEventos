@@ -1,5 +1,7 @@
+using MySql.Data.EntityFramework;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -16,57 +18,57 @@ namespace AppEventos
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            DbConfiguration.SetConfiguration(new MySqlEFConfiguration());
+            //Reglas.RNUsuario.Register(new Entidades.Usuario()
+            //{
+            //    Activo = true,
+            //    Password = "123",
+            //    Username = "dguillermi",
+            //    Nombre = "Damian",
+            //    Email = "Damian@gmail.com",
+            //    Apellido = "Guillermi",
+            //    Descripcion = "Vendedor de cursos online de programacion.",
+            //    Vendedor = true
+            //}
+            //    );
+            //Reglas.RNUsuario.Register(new Entidades.Usuario()
+            //{
+            //    Activo = true,
+            //    Password = "123",
+            //    Username = "mtozzini",
+            //    Nombre = "Mateo",
+            //    Email = "Mateo@gmail.com",
+            //    Apellido = "Tozzini",
+            //    Descripcion = "Vendedor de cursos online de cocina.",
+            //    Vendedor = true
+            //}
+            //    );
 
-            Reglas.RNUsuario.Register(new Entidades.Usuario()
-            {
-                Activo = true,
-                Password = "123",
-                Username = "dguillermi",
-                Nombre = "Damian",
-                Email = "Damian@gmail.com",
-                Apellido = "Guillermi",
-                Descripcion = "Vendedor de cursos online de programacion.",
-                Vendedor = true
-            }
-                );
-            Reglas.RNUsuario.Register(new Entidades.Usuario()
-            {
-                Activo = true,
-                Password = "123",
-                Username = "mtozzini",
-                Nombre = "Mateo",
-                Email = "Mateo@gmail.com",
-                Apellido = "Tozzini",
-                Descripcion = "Vendedor de cursos online de cocina.",
-                Vendedor = true
-            }
-                );
+            //Reglas.RNUsuario.Register(new Entidades.Usuario()
+            //{
+            //    Activo = true,
+            //    Password = "123",
+            //    Username = "ldeni",
+            //    Nombre = "Lucas",
+            //    Email = "LucasDeni@gmail.com",
+            //    Apellido = "Denicola",
+            //    Descripcion = "Vendedor de cursos online de Anime.",
+            //    Vendedor = true
+            //}
+            //    );
 
-            Reglas.RNUsuario.Register(new Entidades.Usuario()
-            {
-                Activo = true,
-                Password = "123",
-                Username = "ldeni",
-                Nombre = "Lucas",
-                Email = "LucasDeni@gmail.com",
-                Apellido = "Denicola",
-                Descripcion = "Vendedor de cursos online de Anime.",
-                Vendedor = true
-            }
-                );
-
-            Reglas.RNUsuario.Register(new Entidades.Usuario()
-            {
-                Activo = true,
-                Password = "123",
-                Username = "efleire",
-                Nombre = "Ezequiel",
-                Email = "Ezequiel@gmail.com",
-                Apellido = "Fleire",
-                Descripcion = "Vendedor de cursos online de guitarra.",
-                Vendedor = true
-            }
-                );
+            //Reglas.RNUsuario.Register(new Entidades.Usuario()
+            //{
+            //    Activo = true,
+            //    Password = "123",
+            //    Username = "efleire",
+            //    Nombre = "Ezequiel",
+            //    Email = "Ezequiel@gmail.com",
+            //    Apellido = "Fleire",
+            //    Descripcion = "Vendedor de cursos online de guitarra.",
+            //    Vendedor = true
+            //}
+            //    );
         }
     }
 }

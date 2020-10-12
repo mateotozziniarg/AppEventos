@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AppEventos.Models;
-using AppEventos.Entidades;
 using System.Web;
 using AppEventos.Reglas;
 using System.Web.Mvc;
@@ -33,7 +32,7 @@ namespace AppEventos.Controllers
         [HttpPost]
         public ActionResult EditarPerfil(string Nombre, string Apellido, string Descripcion) {
 
-            Usuario user = RNUsuario.Buscar(SessionHelper.UsuarioLogueado.Id);
+            usuario user = RNUsuario.Buscar(SessionHelper.UsuarioLogueado.Id);
             user.Nombre = Nombre;
             user.Apellido = Apellido;
             user.Descripcion = Descripcion;
@@ -80,7 +79,7 @@ namespace AppEventos.Controllers
                 return View();
             }
 
-            Usuario user = RNUsuario.Buscar(SessionHelper.UsuarioLogueado.Id);
+            usuario user = RNUsuario.Buscar(SessionHelper.UsuarioLogueado.Id);
 
             if (user.ChangePassword(NewPassword)) {
                 ViewBag.Success = "Cambio de contraseña exitoso.";

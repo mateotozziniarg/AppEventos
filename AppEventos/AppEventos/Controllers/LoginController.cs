@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AppEventos.Models;
-using AppEventos.Entidades;
 using System.Web;
 using AppEventos.Reglas;
 using System.Web.Mvc;
@@ -24,7 +23,7 @@ namespace AppEventos.Controllers
                 Username = username,
                 Password = password
             };
-            Usuario userLoged = RNUsuario.Login(usuarioNuevo);
+            usuario userLoged = RNUsuario.Login(usuarioNuevo);
             if (userLoged == null)
             {
                 ViewBag.Error = "No se ha logrado logearse.";
@@ -53,14 +52,17 @@ namespace AppEventos.Controllers
             var usernameUsed = RNUsuario.getByUsername(Username);
             if ( emailUsed != null) { ViewData["EmailUsed"] = "El correo electronico ya esta en uso"; return View("Login"); }
             if ( usernameUsed != null ) { ViewData["UsernameUsed"] = "El usuario ya esta en uso"; return View("Login"); }
-            Usuario usuarioRegister = new Usuario();
-            usuarioRegister.Email = Email;
-            usuarioRegister.Nombre = Nombre;
-            usuarioRegister.Apellido = Apellido;
-            usuarioRegister.Username = Username;
-            usuarioRegister.Password = Password;
-            usuarioRegister.Activo = true;
-            usuarioRegister.Vendedor = false;
+            usuario usuarioRegister = new usuario
+            {
+                Email = Email,
+                Nombre = Nombre,
+                Apellido = Apellido,
+                Username = Username,
+                Password = Password,
+                Activo = true,
+                Vendedor = false,
+                Descripcion = ""
+            };
             try
             {
                 RNUsuario.Register(usuarioRegister);
