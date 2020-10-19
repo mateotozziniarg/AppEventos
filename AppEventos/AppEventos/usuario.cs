@@ -24,6 +24,7 @@ namespace AppEventos
         public bool Vendedor { get; set; }
         public string Username { get; set; }
         public string Descripcion { get; set; }
+        public string Imagen { get; set; }
         public bool Save()
         {
             var success = RNUsuario.SaveUser(this);
@@ -34,5 +35,4 @@ namespace AppEventos
             return false;
         }
     }
-
 }

@@ -8,6 +8,8 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Runtime.Remoting.Messaging;
+using System.ComponentModel.DataAnnotations;
+using AppEventos.Controllers;
 
 namespace AppEventos.Reglas
 {
@@ -27,9 +29,7 @@ namespace AppEventos.Reglas
             //var usuarioEnLista = .Where(usu => usu.Username.Equals(username)).FirstOrDefault();
             try {
                 using (eventsEntities1 db = new eventsEntities1()) {
-                    db.Database.Connection.Open();
                     usuario user = db.usuario.ToList().Where(usu => usu.Username.Equals(username)).FirstOrDefault();
-                    db.Database.Connection.Close();
                     return user;
                 }
             }catch{
@@ -42,9 +42,7 @@ namespace AppEventos.Reglas
             {
                 using (eventsEntities1 db = new eventsEntities1())
                 {
-                    db.Database.Connection.Open();
                     usuario user = db.usuario.ToList().Where(usu => usu.Email.Equals(email)).FirstOrDefault();
-                    db.Database.Connection.Close();
                     return user;
                 }
             }
@@ -60,9 +58,7 @@ namespace AppEventos.Reglas
             {
                 using (eventsEntities1 db = new eventsEntities1())
                 {
-                    db.Database.Connection.Open();
                     usuario user = db.usuario.ToList().Where(usu => usu.Id == id).FirstOrDefault();
-                    db.Database.Connection.Close();
                     return user;
                 }
             }
@@ -78,10 +74,8 @@ namespace AppEventos.Reglas
             {
                 using (eventsEntities1 db = new eventsEntities1())
                 {
-                    db.Database.Connection.Open();
                     db.usuario.Add(user);
                     db.SaveChanges();
-                    db.Database.Connection.Close();
                 }
             }
             catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
@@ -120,7 +114,6 @@ namespace AppEventos.Reglas
             {
                 using (eventsEntities1 db = new eventsEntities1())
                 {
-                    db.Database.Connection.Open();
                     var user = db.usuario.SingleOrDefault(x => x.Id == usuario.Id);
                     if (user != null) {
                         user.Nombre = usuario.Nombre;
@@ -128,7 +121,6 @@ namespace AppEventos.Reglas
                         user.Descripcion = usuario.Descripcion;
                         db.SaveChanges();
                     }
-                    db.Database.Connection.Close();
                 }
                 return true;
             }
@@ -141,9 +133,21 @@ namespace AppEventos.Reglas
         public static bool ChangePassword(usuario usuario, String NewPassword)
         {
             if (NewPassword == "" || usuario == null) { return false; }
-            usuario.Password = NewPassword;
-            //bdUsuario[bdUsuario.FindIndex(x => x.Id == usuario.Id)] = usuario;
-            return true;
+            try
+            {
+                using (eventsEntities1 db = new eventsEntities1())
+                {
+                    var user = db.usuario.Where(x => x.Id == usuario.Id).FirstOrDefault();
+                    user.Password = NewPassword;
+                    db.SaveChanges();
+                    SessionHelper.UsuarioLogueado = user;
+                }
+                return true;
+            }
+            catch 
+            {
+                return false;
+            }
         }
 
 

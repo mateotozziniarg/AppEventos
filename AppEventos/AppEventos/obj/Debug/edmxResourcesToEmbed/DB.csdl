@@ -13,8 +13,27 @@
     <Property Name="Vendedor" Type="Boolean" Nullable="false" />
     <Property Name="Username" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Descripcion" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Imagen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityContainer Name="eventsEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="usuario" EntityType="Self.usuario" />
+    <EntitySet Name="evento" EntityType="testModel.evento" />
   </EntityContainer>
+  <EntityType Name="evento">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="titulo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="resumen" Type="String" Nullable="false" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" Nullable="false" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="tope_gente" Type="Int32" Nullable="false" />
+    <Property Name="online" Type="Boolean" Nullable="false" />
+    <Property Name="activo" Type="Boolean" Nullable="false" />
+    <Property Name="id_autor" Type="Int32" Nullable="false" />
+    <Property Name="fecha_desde" Type="DateTime" Nullable="false" />
+    <Property Name="fecha_hasta" Type="DateTime" Nullable="false" />
+    <Property Name="ubicacion" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="imagen_portada" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

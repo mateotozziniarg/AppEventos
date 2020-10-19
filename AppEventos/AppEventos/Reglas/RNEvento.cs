@@ -1,0 +1,104 @@
+﻿using AppEventos.Models;
+using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Crypto.Digests;
+using System;
+using System.Configuration;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using System.Web;
+using System.Runtime.Remoting.Messaging;
+using System.ComponentModel.DataAnnotations;
+using AppEventos.Controllers;
+using System.Collections;
+
+namespace AppEventos.Reglas
+{
+    public static class RNEvento
+    {
+
+        public static List<evento> getEventos()
+        {
+            using (eventsEntities1 db = new eventsEntities1())
+            {
+                return db.evento.ToList();
+            }
+        }
+
+        public static evento getById(int id)
+        {
+            //var usuarioEnLista = .Where(usu => usu.Username.Equals(username)).FirstOrDefault();
+            try {
+                using (eventsEntities1 db = new eventsEntities1())
+                {
+                    evento evento = db.evento.ToList().Where(ev => ev.id == id).FirstOrDefault();
+                    return evento;
+                }
+            }catch{
+                return null;
+            }
+        }
+        public static List<evento> getByAutor(int idAutor)
+        {
+            try
+            {
+                using (eventsEntities1 db = new eventsEntities1())
+                {
+                    List<evento> eventos = db.evento.Where(x => x.id_autor == idAutor).ToList();
+                    return eventos;
+                }
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public static bool CrearEvento(evento evento)
+        {
+
+            try
+            {
+                using (eventsEntities1 db = new eventsEntities1())
+                {
+                    db.evento.Add(evento);
+                    db.SaveChanges();
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public static bool SaveEvento(evento evento)
+        {
+            try
+            {
+                using (eventsEntities1 db = new eventsEntities1())
+                {
+                    var ev = db.evento.SingleOrDefault(x => x.id == evento.id);
+                    if (evento != null) {
+                        ev.titulo = evento.titulo;
+                        ev.resumen = evento.resumen;
+                        ev.descripcion = evento.descripcion;
+                        ev.tope_gente = evento.tope_gente;
+                        ev.online = evento.online;
+                        ev.fecha_desde = evento.fecha_desde;
+                        ev.fecha_hasta = evento.fecha_hasta;
+                        ev.ubicacion = evento.ubicacion;
+                        ev.imagen_portada = evento.imagen_portada;
+                        db.SaveChanges();
+                    }
+                }  
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+
+    }
+}

@@ -1,5 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="testModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="evento">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="titulo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="resumen" Type="text" Nullable="false" />
+    <Property Name="descripcion" Type="text" Nullable="false" />
+    <Property Name="tope_gente" Type="int" Nullable="false" />
+    <Property Name="online" Type="bool" Nullable="false" />
+    <Property Name="activo" Type="bool" Nullable="false" />
+    <Property Name="id_autor" Type="int" Nullable="false" />
+    <Property Name="fecha_desde" Type="date" Nullable="false" />
+    <Property Name="fecha_hasta" Type="date" Nullable="false" />
+    <Property Name="ubicacion" Type="text" />
+    <Property Name="imagen_portada" Type="text" />
+  </EntityType>
   <EntityType Name="usuario">
     <Key>
       <PropertyRef Name="Id" />
@@ -13,8 +30,10 @@
     <Property Name="Vendedor" Type="bool" Nullable="false" />
     <Property Name="Username" Type="varchar" MaxLength="200" Nullable="false" />
     <Property Name="Descripcion" Type="varchar" MaxLength="1000" Nullable="false" />
+    <Property Name="Imagen" Type="varchar" MaxLength="200" />
   </EntityType>
   <EntityContainer Name="testModelStoreContainer">
+    <EntitySet Name="evento" EntityType="Self.evento" Schema="test" store:Type="Tables" />
     <EntitySet Name="usuario" EntityType="Self.usuario" Schema="test" store:Type="Tables" />
   </EntityContainer>
 </Schema>

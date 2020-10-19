@@ -5,6 +5,23 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="testModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="evento">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="titulo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="resumen" Type="text" Nullable="false" />
+          <Property Name="descripcion" Type="text" Nullable="false" />
+          <Property Name="tope_gente" Type="int" Nullable="false" />
+          <Property Name="online" Type="bool" Nullable="false" />
+          <Property Name="activo" Type="bool" Nullable="false" />
+          <Property Name="id_autor" Type="int" Nullable="false" />
+          <Property Name="fecha_desde" Type="date" Nullable="false" />
+          <Property Name="fecha_hasta" Type="date" Nullable="false" />
+          <Property Name="ubicacion" Type="text" />
+          <Property Name="imagen_portada" Type="text" />
+        </EntityType>
         <EntityType Name="usuario">
           <Key>
             <PropertyRef Name="Id" />
@@ -18,8 +35,10 @@
           <Property Name="Vendedor" Type="bool" Nullable="false" />
           <Property Name="Username" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="Descripcion" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Imagen" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityContainer Name="testModelStoreContainer">
+          <EntitySet Name="evento" EntityType="Self.evento" Schema="test" store:Type="Tables" />
           <EntitySet Name="usuario" EntityType="Self.usuario" Schema="test" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -39,10 +58,29 @@
           <Property Name="Vendedor" Type="Boolean" Nullable="false" />
           <Property Name="Username" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Descripcion" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Imagen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityContainer Name="eventsEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="usuario" EntityType="Self.usuario" />
+          <EntitySet Name="evento" EntityType="testModel.evento" />
         </EntityContainer>
+        <EntityType Name="evento">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titulo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="resumen" Type="String" Nullable="false" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="tope_gente" Type="Int32" Nullable="false" />
+          <Property Name="online" Type="Boolean" Nullable="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
+          <Property Name="id_autor" Type="Int32" Nullable="false" />
+          <Property Name="fecha_desde" Type="DateTime" Nullable="false" />
+          <Property Name="fecha_hasta" Type="DateTime" Nullable="false" />
+          <Property Name="ubicacion" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="imagen_portada" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -52,6 +90,7 @@
           <EntitySetMapping Name="usuario">
             <EntityTypeMapping TypeName="testModel.usuario">
               <MappingFragment StoreEntitySet="usuario">
+                <ScalarProperty Name="Imagen" ColumnName="Imagen" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
@@ -61,6 +100,24 @@
                 <ScalarProperty Name="Vendedor" ColumnName="Vendedor" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="evento">
+            <EntityTypeMapping TypeName="testModel.evento">
+              <MappingFragment StoreEntitySet="evento">
+                <ScalarProperty Name="imagen_portada" ColumnName="imagen_portada" />
+                <ScalarProperty Name="ubicacion" ColumnName="ubicacion" />
+                <ScalarProperty Name="fecha_hasta" ColumnName="fecha_hasta" />
+                <ScalarProperty Name="fecha_desde" ColumnName="fecha_desde" />
+                <ScalarProperty Name="id_autor" ColumnName="id_autor" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+                <ScalarProperty Name="online" ColumnName="online" />
+                <ScalarProperty Name="tope_gente" ColumnName="tope_gente" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="resumen" ColumnName="resumen" />
+                <ScalarProperty Name="titulo" ColumnName="titulo" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

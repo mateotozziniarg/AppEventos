@@ -247,6 +247,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SessionHelper.cs" />
+    <Compile Include="Controllers\EventoController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="DB.Context.cs">
@@ -264,11 +265,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="evento.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\UsuarioLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reglas\RNEvento.cs" />
     <Compile Include="Reglas\RNUsuario.cs" />
     <Compile Include="usuario.cs">
       <DependentUpon>DB.tt</DependentUpon>
@@ -436,6 +441,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Usuario\EditarPerfil.cshtml" />
     <Content Include="Views\Usuario\CambiarPass.cshtml" />
+    <Content Include="Views\Evento\CrearEvento.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

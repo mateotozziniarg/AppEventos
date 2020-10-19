@@ -4,6 +4,7 @@
     <EntitySetMapping Name="usuario">
       <EntityTypeMapping TypeName="testModel.usuario">
         <MappingFragment StoreEntitySet="usuario">
+          <ScalarProperty Name="Imagen" ColumnName="Imagen" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Password" ColumnName="Password" />
@@ -13,6 +14,24 @@
           <ScalarProperty Name="Vendedor" ColumnName="Vendedor" />
           <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="evento">
+      <EntityTypeMapping TypeName="testModel.evento">
+        <MappingFragment StoreEntitySet="evento">
+          <ScalarProperty Name="imagen_portada" ColumnName="imagen_portada" />
+          <ScalarProperty Name="ubicacion" ColumnName="ubicacion" />
+          <ScalarProperty Name="fecha_hasta" ColumnName="fecha_hasta" />
+          <ScalarProperty Name="fecha_desde" ColumnName="fecha_desde" />
+          <ScalarProperty Name="id_autor" ColumnName="id_autor" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="online" ColumnName="online" />
+          <ScalarProperty Name="tope_gente" ColumnName="tope_gente" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="resumen" ColumnName="resumen" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
