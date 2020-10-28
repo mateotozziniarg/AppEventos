@@ -18,24 +18,35 @@
             <ul class="nav navbar-nav">
                 <li class="nav-link"><a class="navbar-text" href="/Home/Index">Home</a></li>
             </ul>
-            <span class="navbar-text" style="margin: 0 50px 0 auto">
+
+            
+
+            <span class="navbar-text" style="margin: 0 50px 0 auto" display:block;>
+
                 @if (Session["UsuarioLogeado"] != null)
                 {
-                    <div class="dropdown">
-                        <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Hola @AppEventos.Controllers.SessionHelper.UsuarioLogueado.Nombre
-                        </button>
-                        <div class="dropdown-menu dropd" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" style="color:black" href="/Usuario/Perfil">Mi Perfil</a>
-                            <a class="dropdown-item" style="color:black" href="/Login/Logout">Cerrar Sesion</a>
-                        </div>
-                    </div>
+                        <a href="~/Evento/CrearEvento" class="btn btn-info d-inline-block"> Crear evento</a>
+                    
                 }
-                else
-                {
-                    <li class="nav-link"><a class="navbar-text" href="/Login/Login">Login</a></li>
-                }
-                    </span>
+
+                    @if (Session["UsuarioLogeado"] != null)
+                    {
+                        <span class="dropdown">
+                            <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Hola @AppEventos.Controllers.SessionHelper.UsuarioLogueado.Nombre
+                            </button>
+                            <div class="dropdown-menu dropd" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" style="color:black" href="/Usuario/Perfil">Mi Perfil</a>
+                                <a class="dropdown-item" style="color:black" href="/Login/Logout">Cerrar Sesion</a>
+                                <a class="dropdown-item" style="color:black" href="/Login/Logout">Crear eventon</a>
+                            </div>
+                        </span>
+                    }
+                    else
+                    {
+                        <li class="nav-link"><a class="navbar-text" href="/Login/Login">Login</a></li>
+                    }
+                </span>
         </div>
     </nav>
     <div class="container body-content">

@@ -21,7 +21,8 @@ namespace AppEventos.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult CrearEvento(string Titulo, string Resumen, string Descripcion, int TopeGente, bool Online, int IdAutor, System.DateTime FechaDesde, System.DateTime FechaHasta, string Ubicacion/*, string ImagenPortada*/)
+
+        public ActionResult CrearEvento(string Titulo, string Resumen, string Descripcion, int TopeGente, System.DateTime FechaDesde, System.DateTime FechaHasta, string Ubicacion/*,bool Online,  string ImagenPortada*/)
         {
             if (Session["UsuarioLogeado"] == null)
             {
@@ -37,9 +38,9 @@ namespace AppEventos.Controllers
                 resumen = Resumen,
                 descripcion = Descripcion,
                 tope_gente = TopeGente,
-                online = Online,
+                online = true,
                 activo = true,
-                id_autor = IdAutor,
+                id_autor = 1,/*Ver como solucionar*/
                 fecha_desde = FechaDesde,
                 fecha_hasta = FechaHasta,
                 ubicacion = Ubicacion,
