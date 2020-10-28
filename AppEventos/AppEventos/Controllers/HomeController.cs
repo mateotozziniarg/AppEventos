@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppEventos.Reglas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,8 @@ namespace AppEventos.Controllers
     {
         public ActionResult Index()
         {
+            var eventos = RNEvento.getEventos();
+            ViewData["eventos"] = eventos;
             return View();
         }
 
@@ -28,3 +31,4 @@ namespace AppEventos.Controllers
         }
     }
 }
+

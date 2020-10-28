@@ -265,6 +265,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Entidades\evento.cs" />
     <Compile Include="Entidades\usuario.cs" />
     <Compile Include="evento.cs">
       <DependentUpon>DB.tt</DependentUpon>

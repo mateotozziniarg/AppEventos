@@ -40,7 +40,7 @@ namespace AppEventos.Controllers
                 tope_gente = TopeGente,
                 online = true,
                 activo = true,
-                id_autor = 1,/*Ver como solucionar*/
+                id_autor = SessionHelper.UsuarioLogueado.Id,
                 fecha_desde = FechaDesde,
                 fecha_hasta = FechaHasta,
                 ubicacion = Ubicacion,
@@ -48,12 +48,12 @@ namespace AppEventos.Controllers
                 //Agregar fecha de creacion a la tabla modificar la clase y agregar aca fecha creacion = DateTime.Now;
             };
             var success = RNEvento.CrearEvento(evento);
-            if (!success) 
+            if (!success)
             {
                 ViewData["Error"] = "Surgio un error intentado guardar el evento. Revise los datos e intente de nuevo.";
                 return View();
             }
-            return View("~/Views/Home/Index.cshtml");
+            return RedirectToAction("Index", "Home");
         }
     }
 }
