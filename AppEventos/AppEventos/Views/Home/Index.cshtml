@@ -3,6 +3,7 @@
     ViewBag.Title = "Home Page";
     var eventos = (List<evento>)ViewData["eventos"];
 }
+@model IEnumerable<AppEventos.evento>
 
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner rounded">
@@ -30,9 +31,9 @@
 
 
 <div class="row d-flex justify-content-around">
-    @if (eventos != null)
+    @if (Model != null)
     {
-        foreach (var evento in eventos)
+        foreach (var evento in Model)
         {
             <text>
                 <div class="card text-center col-xs-12 col-sm-6 col-md-4 col-lg-3 mt-5 mx-2 rounded border-light">

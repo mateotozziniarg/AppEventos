@@ -1,4 +1,5 @@
-﻿using AppEventos.Reglas;
+﻿using AppEventos.Models;
+using AppEventos.Reglas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,12 +12,8 @@ namespace AppEventos.Controllers
     {
         public ActionResult Index()
         {
-            //if (SessionHelper.UsuarioLogueado != null ) { 
-                
-            //}
             var eventos = RNEvento.getEventos();
-            ViewData["eventos"] = eventos;
-            return View();
+            return View(eventos);
         }
 
         public ActionResult About()
