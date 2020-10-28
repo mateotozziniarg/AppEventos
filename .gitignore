@@ -1,3 +1,8 @@
 
 *.dll
 *.dll
+*.dll
+*.pdb
+AppEventos/AppEventos/obj/Debug/AppEventos.pdb
+AppEventos/AppEventos/obj/Debug/AppEventos.dll
+AppEventos/.vs/AppEventos/v16/.suo

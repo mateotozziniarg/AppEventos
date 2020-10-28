@@ -1,5 +1,6 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+    var eventos = (List<evento>)ViewData["eventos"];
 }
 
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -27,62 +28,24 @@
 
 
 
-@*@foreach (var evento in AppEventos.Reglas.RNEvento.getEventos.Model)*@
-{
-    @*<text>
-        <tr>
-            <td>@Html.TextBoxFor(x => x.allOrders)</td>
-            <td>@_Order.allOrders</td>
-            @
-            <td>@Html.TextBoxFor(x => x.CustomerName, new { @readonly = true }) </td>
-            @foreach (var item in _Order)
-            {
-                item.ItemProp < br />
-             }
-        </tr>
-    </text>*@
-}
-
-
-
 <div class="row d-flex justify-content-around">
-    <div class="card text-center col-xs-12 col-sm-6 col-md-4 col-lg-3 mt-5 mx-2 rounded border-light">
-        <div class="card-header">
-            Featured
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">TITULO - CREO - REVISAR</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-dark rounded">Go somewhere</a>
-        </div>
-        <div class="card-footer text-muted">
-            2 days ago
-        </div>
-    </div>
-    <div class="card text-center col-xs-12 col-sm-6 col-md-4 col-lg-3 mt-5 mx-2 rounded border-light">
-        <div class="card-header">
-            Featured
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-dark rounded">Go somewhere</a>
-        </div>
-        <div class="card-footer text-muted">
-            2 days ago
-        </div>
-    </div>
-    <div class="card text-center col-xs-12 col-sm-6 col-md-4 col-lg-3 mt-5 mx-2 rounded border-light">
-        <div class="card-header">
-            Featured
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-dark rounded">Go somewhere</a>
-        </div>
-        <div class="card-footer text-muted">
-            2 days ago
-        </div>
-    </div>
+    @foreach (var evento in eventos)
+    {
+        <text>
+            <div class="card text-center col-xs-12 col-sm-6 col-md-4 col-lg-3 mt-5 mx-2 rounded border-light">
+                <div class="card-header">
+                    @evento.ubicacion
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">@evento.titulo</h5>
+                    <p class="card-text">@evento.resumen</p>
+                    <a href="#" class="btn btn-dark rounded">Go somewhere</a>
+                </div>
+                <div class="card-footer text-muted">
+                    @evento.fecha_desde
+                </div>
+            </div>
+
+        </text>
+    }
 </div>
