@@ -11,6 +11,9 @@ namespace AppEventos.Controllers
     {
         public ActionResult Index()
         {
+            //if (SessionHelper.UsuarioLogueado != null ) { 
+                
+            //}
             var eventos = RNEvento.getEventos();
             ViewData["eventos"] = eventos;
             return View();

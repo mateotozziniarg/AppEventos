@@ -23,7 +23,7 @@
 
             <span class="navbar-text" style="margin: 0 50px 0 auto" display:block;>
 
-                @if (Session["UsuarioLogeado"] != null)
+                @if (Session["UsuarioLogeado"] != null && AppEventos.Controllers.SessionHelper.UsuarioLogueado.Vendedor == true)
                 {
                         <a href="~/Evento/CrearEvento" class="btn btn-info d-inline-block"> Crear evento</a>
                     
@@ -38,7 +38,6 @@
                             <div class="dropdown-menu dropd" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" style="color:black" href="/Usuario/Perfil">Mi Perfil</a>
                                 <a class="dropdown-item" style="color:black" href="/Login/Logout">Cerrar Sesion</a>
-                                <a class="dropdown-item" style="color:black" href="/Login/Logout">Crear eventon</a>
                             </div>
                         </span>
                     }
