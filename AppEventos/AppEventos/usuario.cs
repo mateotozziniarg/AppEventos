@@ -25,14 +25,5 @@ namespace AppEventos
         public string Username { get; set; }
         public string Descripcion { get; set; }
         public string Imagen { get; set; }
-        public bool Save()
-        {
-            var success = RNUsuario.SaveUser(this);
-            return success;
-        }
-        public bool ChangePassword(string password)
-        {
-            return false;
-        }
     }
 }

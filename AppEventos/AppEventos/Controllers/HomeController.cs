@@ -13,7 +13,7 @@ namespace AppEventos.Controllers
         {
             var eventos = RNEvento.getEventos();
             ViewData["eventos"] = eventos;
-            return View();
+            return View(); 
         }
 
         public ActionResult About()
