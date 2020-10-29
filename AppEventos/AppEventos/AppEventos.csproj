@@ -444,6 +444,7 @@
     <Content Include="Views\Usuario\EditarPerfil.cshtml" />
     <Content Include="Views\Usuario\CambiarPass.cshtml" />
     <Content Include="Views\Evento\CrearEvento.cshtml" />
+    <Content Include="Views\Evento\Evento.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

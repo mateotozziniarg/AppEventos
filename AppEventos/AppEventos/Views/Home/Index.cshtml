@@ -43,7 +43,7 @@
                     <div class="card-body">
                         <h5 class="card-title">@evento.titulo</h5>
                         <p class="card-text">@evento.resumen</p>
-                        <a href="#" class="btn btn-dark rounded">Go somewhere</a>
+                        <a href="@Url.Action("Evento","Evento", new {id = evento.id})" class="btn btn-dark rounded" >Ver Evento</a>
                     </div>
                     <div class="card-footer text-muted">
                         @evento.fecha_desde
