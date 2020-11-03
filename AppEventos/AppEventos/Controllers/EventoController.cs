@@ -6,6 +6,7 @@ using AppEventos.Models;
 using System.Web;
 using AppEventos.Reglas;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 
 namespace AppEventos.Controllers
 {
@@ -55,5 +56,16 @@ namespace AppEventos.Controllers
             }
             return RedirectToAction("Index", "Home");
         }
+        public ActionResult Evento(int id)
+        {
+            var Evento = RNEvento.getById(id);
+            var Usuario = RNUsuario.Buscar(Evento.id_autor);
+
+            ViewData["UsuarioEvento"] = Usuario;
+
+            return View(Evento);
+        }
+
     }
+
 }
