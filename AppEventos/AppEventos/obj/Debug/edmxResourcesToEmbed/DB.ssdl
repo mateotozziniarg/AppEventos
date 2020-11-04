@@ -2,21 +2,20 @@
 <Schema Namespace="testModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="evento">
     <Key>
-      <PropertyRef Name="Id" />
+      <PropertyRef Name="id" />
     </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Titulo" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Resumen" Type="text" Nullable="false" />
-    <Property Name="Descripcion" Type="text" Nullable="false" />
-    <Property Name="Tope_gente" Type="int" Nullable="false" />
-    <Property Name="Online" Type="bool" Nullable="false" />
-    <Property Name="Activo" Type="bool" Nullable="false" />
-    <Property Name="Id_autor" Type="int" Nullable="false" />
-    <Property Name="Fecha_desde" Type="date" Nullable="false" />
-    <Property Name="Fecha_hasta" Type="date" Nullable="false" />
-    <Property Name="Ubicacion" Type="text" />
-    <Property Name="Imagen_portada" Type="text" />
-    <Property Name="Precio" Type="float" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="titulo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="resumen" Type="text" Nullable="false" />
+    <Property Name="descripcion" Type="text" Nullable="false" />
+    <Property Name="tope_gente" Type="int" Nullable="false" />
+    <Property Name="online" Type="bool" Nullable="false" />
+    <Property Name="activo" Type="bool" Nullable="false" />
+    <Property Name="id_autor" Type="int" Nullable="false" />
+    <Property Name="fecha_desde" Type="date" Nullable="false" />
+    <Property Name="fecha_hasta" Type="date" Nullable="false" />
+    <Property Name="ubicacion" Type="text" />
+    <Property Name="imagen_portada" Type="text" />
   </EntityType>
   <EntityType Name="usuario">
     <Key>
@@ -33,24 +32,8 @@
     <Property Name="Descripcion" Type="varchar" MaxLength="1000" Nullable="false" />
     <Property Name="Imagen" Type="varchar" MaxLength="200" />
   </EntityType>
-  <Association Name="evento_ibfk_1">
-    <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
-    <End Role="evento" Type="Self.evento" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="usuario">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="evento">
-        <PropertyRef Name="Id_autor" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="testModelStoreContainer">
     <EntitySet Name="evento" EntityType="Self.evento" Schema="test" store:Type="Tables" />
     <EntitySet Name="usuario" EntityType="Self.usuario" Schema="test" store:Type="Tables" />
-    <AssociationSet Name="evento_ibfk_1" Association="Self.evento_ibfk_1">
-      <End Role="usuario" EntitySet="usuario" />
-      <End Role="evento" EntitySet="evento" />
-    </AssociationSet>
   </EntityContainer>
 </Schema>

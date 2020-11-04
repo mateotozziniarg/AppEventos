@@ -14,45 +14,26 @@
     <Property Name="Username" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Descripcion" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Imagen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="evento" Relationship="testModel.evento_ibfk_1" FromRole="usuario" ToRole="evento" />
   </EntityType>
   <EntityContainer Name="eventsEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="usuario" EntityType="Self.usuario" />
     <EntitySet Name="evento" EntityType="testModel.evento" />
-    <AssociationSet Name="evento_ibfk_1" Association="testModel.evento_ibfk_1">
-      <End Role="usuario" EntitySet="usuario" />
-      <End Role="evento" EntitySet="evento" />
-    </AssociationSet>
   </EntityContainer>
   <EntityType Name="evento">
     <Key>
-      <PropertyRef Name="Id" />
+      <PropertyRef Name="id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Titulo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Resumen" Type="String" Nullable="false" MaxLength="65535" FixedLength="false" Unicode="false" />
-    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="65535" FixedLength="false" Unicode="false" />
-    <Property Name="Tope_gente" Type="Int32" Nullable="false" />
-    <Property Name="Online" Type="Boolean" Nullable="false" />
-    <Property Name="Activo" Type="Boolean" Nullable="false" />
-    <Property Name="Id_autor" Type="Int32" Nullable="false" />
-    <Property Name="Fecha_desde" Type="DateTime" Nullable="false" />
-    <Property Name="Fecha_hasta" Type="DateTime" Nullable="false" />
-    <Property Name="Ubicacion" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
-    <Property Name="Imagen_portada" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
-    <Property Name="Precio" Type="Single" Nullable="false" />
-    <NavigationProperty Name="usuario" Relationship="testModel.evento_ibfk_1" FromRole="evento" ToRole="usuario" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="titulo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="resumen" Type="String" Nullable="false" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" Nullable="false" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="tope_gente" Type="Int32" Nullable="false" />
+    <Property Name="online" Type="Boolean" Nullable="false" />
+    <Property Name="activo" Type="Boolean" Nullable="false" />
+    <Property Name="id_autor" Type="Int32" Nullable="false" />
+    <Property Name="fecha_desde" Type="DateTime" Nullable="false" />
+    <Property Name="fecha_hasta" Type="DateTime" Nullable="false" />
+    <Property Name="ubicacion" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="imagen_portada" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
   </EntityType>
-  <Association Name="evento_ibfk_1">
-    <End Type="testModel.usuario" Role="usuario" Multiplicity="1" />
-    <End Type="testModel.evento" Role="evento" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="usuario">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="evento">
-        <PropertyRef Name="Id_autor" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
 </Schema>

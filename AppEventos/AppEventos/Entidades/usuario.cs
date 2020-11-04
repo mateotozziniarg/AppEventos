@@ -16,10 +16,5 @@ namespace AppEventos
         {
             return false;
         }
-
-        public bool DarAltaVendedor() {
-            if (this.Id == null || this.Id == 0 ) { return false; }
-
-        }
     }
 }

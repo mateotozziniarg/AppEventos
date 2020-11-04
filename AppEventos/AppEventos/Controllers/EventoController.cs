@@ -23,7 +23,7 @@ namespace AppEventos.Controllers
         }
         [HttpPost]
 
-        public ActionResult CrearEvento(string Titulo, string Resumen, string Descripcion, System.DateTime FechaDesde, System.DateTime FechaHasta, string Ubicacion,bool Online = false, int TopeGente = 0/*,  string ImagenPortada*/)
+        public ActionResult CrearEvento(string Titulo, string Resumen, string Descripcion, int TopeGente, System.DateTime FechaDesde, System.DateTime FechaHasta, string Ubicacion/*,bool Online,  string ImagenPortada*/)
         {
             if (Session["UsuarioLogeado"] == null)
             {
@@ -35,17 +35,17 @@ namespace AppEventos.Controllers
 
             evento evento = new evento
             {
-                Titulo = Titulo,
-                Resumen = Resumen,
-                Descripcion = Descripcion,
-                Tope_gente = TopeGente,
-                Online = Online,
-                Activo = true,
-                Id_autor = SessionHelper.UsuarioLogueado.Id,
-                Fecha_desde = FechaDesde,
-                Fecha_hasta = FechaHasta,
-                Ubicacion = Ubicacion,
-                Imagen_portada = " - "
+                titulo = Titulo,
+                resumen = Resumen,
+                descripcion = Descripcion,
+                tope_gente = TopeGente,
+                online = true,
+                activo = true,
+                id_autor = SessionHelper.UsuarioLogueado.Id,
+                fecha_desde = FechaDesde,
+                fecha_hasta = FechaHasta,
+                ubicacion = Ubicacion,
+                imagen_portada = " - "
                 //Agregar fecha de creacion a la tabla modificar la clase y agregar aca fecha creacion = DateTime.Now;
             };
             var success = RNEvento.CrearEvento(evento);
@@ -59,7 +59,7 @@ namespace AppEventos.Controllers
         public ActionResult Evento(int id)
         {
             var Evento = RNEvento.getById(id);
-            var Usuario = RNUsuario.Buscar(Evento.Id_autor);
+            var Usuario = RNUsuario.Buscar(Evento.id_autor);
 
             ViewData["UsuarioEvento"] = Usuario;
 
