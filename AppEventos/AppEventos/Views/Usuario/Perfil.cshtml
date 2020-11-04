@@ -1,10 +1,10 @@
 ﻿@{ ViewData["Title"] = "Mi Perfil";
-    }
+}
 <h1>@ViewData["Title"]</h1>
 
 
 <div class="main-layout">
-    <div class="card">
+    <div class="row">
         <div class="card-header">
             <h3>Datos de usuario</h3>
             <a href="~/Usuario/EditarPerfil"><button class="btn btn-primary">Editar datos de perfil</button> </a>
@@ -26,7 +26,7 @@
                 </div>
                 <div class="form-group col-md-3">
                     <label>Apellido</label>
-                    <input  value="@AppEventos.Controllers.SessionHelper.UsuarioLogueado.Apellido" type="text" class="form-control" name='Apellido' readonly>
+                    <input value="@AppEventos.Controllers.SessionHelper.UsuarioLogueado.Apellido" type="text" class="form-control" name='Apellido' readonly>
                 </div>
             </div>
         </div>
@@ -41,8 +41,15 @@
         <div class="card-body">
             <a href="~/Home/Index" class="btn btn-secondary">Volver</a>
         </div>
-        </div>
     </div>
 
 <style>
+    .inputForm {
+        display: inline;
+    }
+
+    .lblForm {
+        width: 100px;
+        text-align: center;
+    }
 </style>

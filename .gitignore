@@ -302,3 +302,12 @@ AppEventos/AppEventos/bin/Newtonsoft.Json.xml
 AppEventos/AppEventos/bin/System.Collections.Immutable.dll
 AppEventos/AppEventos/bin/System.Collections.Immutable.xml
 AppEventos/AppEventos/bin/System.Diagnostics.DiagnosticSource.xml
+AppEventos/AppEventos/Views/Usuario/Perfil.cshtml
+AppEventos/AppEventos/Views/Shared/_Layout.cshtml
+AppEventos/AppEventos/obj/Debug/AppEventos.pdb
+AppEventos/AppEventos/obj/Debug/AppEventos.dll
+AppEventos/AppEventos/obj/Debug/AppEventos.csprojAssemblyReference.cache
+AppEventos/AppEventos/Controllers/LoginController.cs
+AppEventos/AppEventos/bin/AppEventos.pdb
+AppEventos/AppEventos/bin/AppEventos.dll
+AppEventos/.vs/AppEventos/v16/.suo

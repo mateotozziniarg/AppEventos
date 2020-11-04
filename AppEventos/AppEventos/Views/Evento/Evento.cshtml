@@ -1,31 +1,71 @@
-﻿
-@{
-    ViewBag.Title = "Evento";
+﻿@{
+    ViewBag.Title = "Detalles del evento";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var Usuario = (usuario)ViewData["UsuarioEvento"];
 }
 
 
 @model evento
+<h1>@ViewData["Title"]</h1>
 
-<h2>Evento</h2>
+<div class="container col-12 " style="display: inline-block !important; width: 100%; vertical-align: top;" >
 
-<div class="row">
-    <div class="perfil-container col-12 col-md-6" style="display: inline-block !important; width: 45%; vertical-align: top;">
-        <h1>@Model.titulo</h1>
-        asd2
+
+    <div class="form-group col-lg-12">
+        <div class="row">
+
+            <div class="card">
+                <div class="card-header">
+                    <h3><strong>@Model.titulo </strong></h3>
+                    <label class="lblForm">Ubicación: @Model.ubicacion</label>
+
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-success">
+                        Fecha de inicio: @Model.fecha_desde
+                    </div>
+                    <div class="alert alert-danger" role="alert">
+                        Fecha de finalización: @Model.fecha_hasta
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-12">
+                            <label class="lblForm">@Model.resumen</label>
+
+                        </div>
+                        <div class="form-group col-12">
+                            <label class="lblForm">@Model.descripcion</label>
+
+                        </div>
+                        <div class="form-group col-12">
+                            <label class="lblForm">Tope gente: @Model.tope_gente</label>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+
+            <div class="evento-container col-md-4">
+                <h1>Detalles del usuario</h1>
+
+                @Usuario.Nombre
+
+                Detalle Descripción:
+
+
+                asd34
+            </div>
+        </div>
+
+        <div>
+            <button class="btn btn-primary">Comprar Entrada</button>
+        </div>
+        <div>
+            <a href="~/"><button class="btn btn-primary" style="float:right; display:inline-flex">Volver</button></a>
+        </div>
     </div>
-
-    <div class="evento-container col-12 col-md-6" style="display: inline-block !important; width: 45%; vertical-align: top;">
-        <h1>@Usuario.Nombre</h1>
-        asd34
-    </div>
-</div>
-
-<div>
-    <button>Comprar Entrada</button>
-</div>
-<div>
-    <button>Volver</button>
-</div>
-
