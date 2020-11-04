@@ -60,7 +60,7 @@ namespace AppEventos.Controllers
                 Username = Username,
                 Password = Password,
                 Activo = true,
-                Vendedor = false,
+                Vendedor = true,
                 Descripcion = ""
             };
             try
