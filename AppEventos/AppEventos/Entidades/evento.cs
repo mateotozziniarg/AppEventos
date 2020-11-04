@@ -9,7 +9,7 @@
     {
         public string getAutorName()
         {
-            var autor = RNUsuario.Buscar(this.id_autor);
+            var autor = RNUsuario.Buscar(this.Id_autor);
             return autor.Nombre;
         }
     }

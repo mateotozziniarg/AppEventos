@@ -14,17 +14,20 @@ namespace AppEventos
     
     public partial class evento
     {
-        public int id { get; set; }
-        public string titulo { get; set; }
-        public string resumen { get; set; }
-        public string descripcion { get; set; }
-        public int tope_gente { get; set; }
-        public bool online { get; set; }
-        public bool activo { get; set; }
-        public int id_autor { get; set; }
-        public System.DateTime fecha_desde { get; set; }
-        public System.DateTime fecha_hasta { get; set; }
-        public string ubicacion { get; set; }
-        public string imagen_portada { get; set; }
+        public int Id { get; set; }
+        public string Titulo { get; set; }
+        public string Resumen { get; set; }
+        public string Descripcion { get; set; }
+        public int Tope_gente { get; set; }
+        public bool Online { get; set; }
+        public bool Activo { get; set; }
+        public int Id_autor { get; set; }
+        public System.DateTime Fecha_desde { get; set; }
+        public System.DateTime Fecha_hasta { get; set; }
+        public string Ubicacion { get; set; }
+        public string Imagen_portada { get; set; }
+        public float Precio { get; set; }
+    
+        public virtual usuario usuario { get; set; }
     }
 }

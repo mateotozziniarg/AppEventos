@@ -90,5 +90,12 @@ namespace AppEventos.Controllers
             ViewBag.Error = "Surgio un error.";
             return View();
         }
+        [HttpPost]
+        public ActionResult AltaVendedor(String descripcion ) {
+            var user = RNUsuario.Buscar(SessionHelper.UsuarioLogueado.Id);
+
+
+            return View();
+        }
     }
 }

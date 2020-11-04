@@ -31,7 +31,7 @@ namespace AppEventos.Reglas
             try {
                 using (eventsEntities1 db = new eventsEntities1())
                 {
-                    evento evento = db.evento.ToList().Where(ev => ev.id == id).FirstOrDefault();
+                    evento evento = db.evento.ToList().Where(ev => ev.Id == id).FirstOrDefault();
                     return evento;
                 }
             }catch{
@@ -44,7 +44,7 @@ namespace AppEventos.Reglas
             {
                 using (eventsEntities1 db = new eventsEntities1())
                 {
-                    List<evento> eventos = db.evento.Where(x => x.id_autor == idAutor).ToList();
+                    List<evento> eventos = db.evento.Where(x => x.Id_autor == idAutor).ToList();
                     return eventos;
                 }
             }
@@ -77,17 +77,17 @@ namespace AppEventos.Reglas
             {
                 using (eventsEntities1 db = new eventsEntities1())
                 {
-                    var ev = db.evento.SingleOrDefault(x => x.id == evento.id);
+                    var ev = db.evento.SingleOrDefault(x => x.Id == evento.Id);
                     if (evento != null) {
-                        ev.titulo = evento.titulo;
-                        ev.resumen = evento.resumen;
-                        ev.descripcion = evento.descripcion;
-                        ev.tope_gente = evento.tope_gente;
-                        ev.online = evento.online;
-                        ev.fecha_desde = evento.fecha_desde;
-                        ev.fecha_hasta = evento.fecha_hasta;
-                        ev.ubicacion = evento.ubicacion;
-                        ev.imagen_portada = evento.imagen_portada;
+                        ev.Titulo = evento.Titulo;
+                        ev.Resumen = evento.Resumen;
+                        ev.Descripcion = evento.Descripcion;
+                        ev.Tope_gente = evento.Tope_gente;
+                        ev.Online = evento.Online;
+                        ev.Fecha_desde = evento.Fecha_desde;
+                        ev.Fecha_hasta = evento.Fecha_hasta;
+                        ev.Ubicacion = evento.Ubicacion;
+                        ev.Imagen_portada = evento.Imagen_portada;
                         db.SaveChanges();
                     }
                 }  
