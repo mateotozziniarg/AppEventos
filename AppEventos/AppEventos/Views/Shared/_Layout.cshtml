@@ -25,28 +25,33 @@
 
                 @if (Session["UsuarioLogeado"] != null && AppEventos.Controllers.SessionHelper.UsuarioLogueado.Vendedor == true)
                 {
-                        <a href="~/Evento/CrearEvento" class="btn btn-info d-inline-block"> Crear evento</a>
-                    
+                    <a href="~/Evento/CrearEvento" class="btn btn-info d-inline-block"> Crear evento</a>
+
                 }
 
-                    @if (Session["UsuarioLogeado"] != null)
-                    {
-                        <span class="dropdown">
-                            <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Hola @AppEventos.Controllers.SessionHelper.UsuarioLogueado.Nombre
-                            </button>
-                            <div class="dropdown-menu dropd" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" style="color:black" href="/Evento/CrearEvento">Crear evento</a>
-                                <a class="dropdown-item" style="color:black" href="/Usuario/Perfil">Mi Perfil</a>
-                                <a class="dropdown-item" style="color:black" href="/Login/Logout">Cerrar Sesion</a>
-                            </div>
-                        </span>
-                    }
-                    else
-                    {
-                        <li class="nav-link"><a class="navbar-text" href="/Login/Login">Login</a></li>
-                    }
-                </span>
+                @if (Session["UsuarioLogeado"] != null && !AppEventos.Controllers.SessionHelper.UsuarioLogueado.Vendedor)
+                {
+                    <text><a class="btn btn-info d-inline-block" style="color:#ffffff" href="/Usuario/AltaVendedor">Quiero Vender Eventos</a></text>
+                }
+
+                @if (Session["UsuarioLogeado"] != null)
+                {
+                    <span class="dropdown">
+                        <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Hola @AppEventos.Controllers.SessionHelper.UsuarioLogueado.Nombre
+                        </button>
+                        <div class="dropdown-menu dropd" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" style="color:black" href="/Evento/CrearEvento">Crear evento</a>
+                            <a class="dropdown-item" style="color:black" href="/Usuario/Perfil">Mi Perfil</a>
+                            <a class="dropdown-item" style="color:black" href="/Login/Logout">Cerrar Sesion</a>
+                        </div>
+                    </span>
+                }
+                else
+                {
+                    <li class="nav-link"><a class="navbar-text" href="/Login/Login">Login</a></li>
+                }
+            </span>
         </div>
     </nav>
     <div class="container body-content">
