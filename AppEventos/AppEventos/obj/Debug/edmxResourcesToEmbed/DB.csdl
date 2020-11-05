@@ -4,16 +4,16 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
-    <Property Name="Email" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" Type="String" />
-    <Property Name="Password" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" Type="String" />
-    <Property Name="Nombre" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" Type="String" />
-    <Property Name="Apellido" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" Type="String" />
-    <Property Name="Activo" Nullable="false" Type="Boolean" />
-    <Property Name="Vendedor" Nullable="false" Type="Boolean" />
-    <Property Name="Username" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" Type="String" />
-    <Property Name="Descripcion" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" Type="String" />
-    <Property Name="Imagen" MaxLength="200" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Apellido" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="Vendedor" Type="Boolean" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Imagen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="evento" Relationship="testModel.evento_ibfk_1" FromRole="usuario" ToRole="evento" />
   </EntityType>
   <EntityContainer Name="eventsEntities1" annotation:LazyLoadingEnabled="true">
