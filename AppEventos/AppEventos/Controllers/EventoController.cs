@@ -7,6 +7,7 @@ using System.Web;
 using AppEventos.Reglas;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
+using System.IO;
 
 namespace AppEventos.Controllers
 {
@@ -23,7 +24,13 @@ namespace AppEventos.Controllers
         }
         [HttpPost]
 
-        public ActionResult CrearEvento(string Titulo, string Resumen, string Descripcion, System.DateTime FechaDesde, System.DateTime FechaHasta, string Ubicacion, bool Online = false, int TopeGente = 0/*,  string ImagenPortada*/)
+        public ActionResult CrearEvento(string Titulo, string Resumen, string Descripcion, System.DateTime FechaDesde, System.DateTime FechaHasta,
+            string Ubicacion,
+            HttpPostedFileBase ImagenPortada,
+            bool Online = false, 
+            int TopeGente = 0
+            
+            /*,  string ImagenPortada*/)
         {
             if (Session["UsuarioLogeado"] == null)
             {
@@ -45,14 +52,35 @@ namespace AppEventos.Controllers
                 Fecha_desde = FechaDesde,
                 Fecha_hasta = FechaHasta,
                 Ubicacion = Ubicacion,
-                Imagen_portada = " - "
+                Imagen_portada = ImagenPortada.FileName
                 //Agregar fecha de creacion a la tabla modificar la clase y agregar aca fecha creacion = DateTime.Now;
             };
             var success = RNEvento.CrearEvento(evento);
+
             if (!success)
             {
                 ViewData["Error"] = "Surgio un error intentado guardar el evento. Revise los datos e intente de nuevo.";
                 return View();
+            }
+
+            if (ImagenPortada != null && ImagenPortada.ContentLength > 0)
+            {
+                try
+                {
+                    string pathEvento = Server.MapPath("~/Content/Eventos/" + evento.Id);
+                    var di = new DirectoryInfo(pathEvento);
+                    if (!di.Exists)
+                        di.Create();
+
+                    string path = Path.Combine(pathEvento,
+                                               Path.GetFileName(ImagenPortada.FileName));
+                    ImagenPortada.SaveAs(path);
+                    ViewBag.Message = "File uploaded successfully";
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Message = "ERROR:" + ex.Message.ToString();
+                }
             }
             return RedirectToAction("Index", "Home");
         }

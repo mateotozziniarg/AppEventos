@@ -37,13 +37,19 @@
         {
             <text>
                 <div class="card text-center col-xs-12 col-sm-6 col-md-4 col-lg-3 mt-5 mx-2 rounded border-light">
+                                <img src="~/Content/Eventos/@evento.Id/@evento.Imagen_portada" style="width: 10rem;">
+                    
                     <div class="card-header">
                         @evento.getAutorName()
                     </div>
+                    
                     <div class="card-body">
                         <h5 class="card-title">@evento.Titulo</h5>
+
+                        
+                        
                         <p class="card-text">@evento.Resumen</p>
-                        <a href="@Url.Action("Evento","Evento", new {id = evento.Id})" class="btn btn-dark rounded" >Ver Evento</a>
+                        <a href="@Url.Action("Evento","Evento", new {id = evento.Id})" class="btn btn-dark rounded">Ver Evento</a>
                     </div>
                     <div class="card-footer text-muted">
                         @evento.Fecha_desde
