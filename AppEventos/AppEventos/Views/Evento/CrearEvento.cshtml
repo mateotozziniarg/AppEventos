@@ -5,7 +5,7 @@
 }
 <div class="layout">
     <h2>CREAR EVENTO!</h2>
-    <form action="CrearEvento" method="post" id="formEvento">
+    <form action="CrearEvento" method="post" id="formEvento" enctype="multipart/form-data">
         <div class="form-group">
             <label for="tituloinput">Titulo del evento</label>
             <input name="Titulo" type="text" required class="form-control centeredForm" id="tituloinput" placeholder="'Clases de Guitarra con Jorge Fleire.'">
@@ -44,7 +44,7 @@
         </div>
         <div class="form-group">
             <label for="imagenportada">Imagen de Portada</label>
-            <input type="file" class="form-control-file" id="imagenportada" name="ImagenPortada">
+            <input type="file" class="form-control-file" id="ImagenPortada" name="ImagenPortada">
         </div>
         <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
