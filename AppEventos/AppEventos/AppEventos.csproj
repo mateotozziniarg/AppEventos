@@ -211,6 +211,7 @@
     </Compile>
     <Compile Include="Entidades\evento.cs" />
     <Compile Include="Entidades\usuario.cs" />
+    <Compile Include="Entidades\usuario_evento.cs" />
     <Compile Include="evento.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
@@ -222,6 +223,9 @@
     <Compile Include="Reglas\RNEvento.cs" />
     <Compile Include="Reglas\RNUsuario.cs" />
     <Compile Include="usuario.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usuario_evento.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
   </ItemGroup>

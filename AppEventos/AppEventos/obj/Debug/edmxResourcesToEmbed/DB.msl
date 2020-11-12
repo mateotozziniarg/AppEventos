@@ -36,5 +36,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="usuario_evento">
+      <EntityTypeMapping TypeName="testModel.usuario_evento">
+        <MappingFragment StoreEntitySet="usuario_evento">
+          <ScalarProperty Name="Fecha_Creacion" ColumnName="Fecha_Creacion" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
+          <ScalarProperty Name="Id_Evento" ColumnName="Id_Evento" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

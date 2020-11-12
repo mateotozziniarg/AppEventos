@@ -27,5 +27,6 @@ namespace AppEventos
     
         public virtual DbSet<usuario> usuario { get; set; }
         public virtual DbSet<evento> evento { get; set; }
+        public virtual DbSet<usuario_evento> usuario_evento { get; set; }
     }
 }

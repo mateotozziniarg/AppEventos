@@ -21,7 +21,7 @@
           <Property Name="Fecha_hasta" Type="date" Nullable="false" />
           <Property Name="Ubicacion" Type="text" />
           <Property Name="Imagen_portada" Type="text" />
-          <Property Name="Precio" Type="float" Nullable="false" />
+          <Property Name="Precio" Type="double" Nullable="false" />
         </EntityType>
         <EntityType Name="usuario">
           <Key>
@@ -38,6 +38,17 @@
           <Property Name="Descripcion" Type="varchar" MaxLength="1000" Nullable="false" />
           <Property Name="Imagen" Type="varchar" MaxLength="200" />
         </EntityType>
+        <EntityType Name="usuario_evento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Evento" Type="int" Nullable="false" />
+          <Property Name="Id_Usuario" Type="int" Nullable="false" />
+          <Property Name="Activo" Type="bool" Nullable="false" />
+          <Property Name="Cantidad" Type="int" Nullable="false" />
+          <Property Name="Fecha_Creacion" Type="date" Nullable="false" />
+        </EntityType>
         <Association Name="evento_ibfk_1">
           <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
           <End Role="evento" Type="Self.evento" Multiplicity="*" />
@@ -53,6 +64,7 @@
         <EntityContainer Name="testModelStoreContainer">
           <EntitySet Name="evento" EntityType="Self.evento" Schema="test" store:Type="Tables" />
           <EntitySet Name="usuario" EntityType="Self.usuario" Schema="test" store:Type="Tables" />
+          <EntitySet Name="usuario_evento" EntityType="Self.usuario_evento" Schema="test" store:Type="Tables" />
           <AssociationSet Name="evento_ibfk_1" Association="Self.evento_ibfk_1">
             <End Role="usuario" EntitySet="usuario" />
             <End Role="evento" EntitySet="evento" />
@@ -85,6 +97,7 @@
             <End Role="usuario" EntitySet="usuario" />
             <End Role="evento" EntitySet="evento" />
           </AssociationSet>
+          <EntitySet Name="usuario_evento" EntityType="testModel.usuario_evento" />
         </EntityContainer>
         <EntityType Name="evento">
           <Key>
@@ -117,6 +130,17 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="usuario_evento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Evento" Type="Int32" Nullable="false" />
+          <Property Name="Id_Usuario" Type="Int32" Nullable="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <Property Name="Cantidad" Type="Int32" Nullable="false" />
+          <Property Name="Fecha_Creacion" Type="DateTime" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -154,6 +178,18 @@
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
                 <ScalarProperty Name="Resumen" ColumnName="Resumen" />
                 <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuario_evento">
+            <EntityTypeMapping TypeName="testModel.usuario_evento">
+              <MappingFragment StoreEntitySet="usuario_evento">
+                <ScalarProperty Name="Fecha_Creacion" ColumnName="Fecha_Creacion" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
+                <ScalarProperty Name="Id_Evento" ColumnName="Id_Evento" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

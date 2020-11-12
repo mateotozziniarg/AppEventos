@@ -99,6 +99,22 @@ namespace AppEventos.Reglas
             }
         }
 
+        public static bool ComprarEntrada(usuario_evento usuario_evento)
+        {
+            try
+            {
+                using(eventsEntities1 db = new eventsEntities1())
+                {
+                    db.usuario_evento.Add(usuario_evento);
+                    db.SaveChanges();
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
     }
 }

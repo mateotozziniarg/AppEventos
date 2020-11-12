@@ -16,7 +16,7 @@
     <Property Name="Fecha_hasta" Type="date" Nullable="false" />
     <Property Name="Ubicacion" Type="text" />
     <Property Name="Imagen_portada" Type="text" />
-    <Property Name="Precio" Type="float" Nullable="false" />
+    <Property Name="Precio" Type="double" Nullable="false" />
   </EntityType>
   <EntityType Name="usuario">
     <Key>
@@ -33,6 +33,17 @@
     <Property Name="Descripcion" Type="varchar" MaxLength="1000" Nullable="false" />
     <Property Name="Imagen" Type="varchar" MaxLength="200" />
   </EntityType>
+  <EntityType Name="usuario_evento">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_Evento" Type="int" Nullable="false" />
+    <Property Name="Id_Usuario" Type="int" Nullable="false" />
+    <Property Name="Activo" Type="bool" Nullable="false" />
+    <Property Name="Cantidad" Type="int" Nullable="false" />
+    <Property Name="Fecha_Creacion" Type="date" Nullable="false" />
+  </EntityType>
   <Association Name="evento_ibfk_1">
     <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
     <End Role="evento" Type="Self.evento" Multiplicity="*" />
@@ -48,6 +59,7 @@
   <EntityContainer Name="testModelStoreContainer">
     <EntitySet Name="evento" EntityType="Self.evento" Schema="test" store:Type="Tables" />
     <EntitySet Name="usuario" EntityType="Self.usuario" Schema="test" store:Type="Tables" />
+    <EntitySet Name="usuario_evento" EntityType="Self.usuario_evento" Schema="test" store:Type="Tables" />
     <AssociationSet Name="evento_ibfk_1" Association="Self.evento_ibfk_1">
       <End Role="usuario" EntitySet="usuario" />
       <End Role="evento" EntitySet="evento" />

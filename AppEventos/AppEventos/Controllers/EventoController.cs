@@ -98,6 +98,35 @@ namespace AppEventos.Controllers
 
             return View();
         }
+
+        [HttpPost]
+        public ActionResult ComprarEntrada(int cantidad)
+        {
+
+            if (Session["UsuarioLogeado"] == null)
+            {
+                ViewData["SessionExpirada"] = "Para poder realizar una compra debes logearte.";
+                return View("~/Views/Login/Login.cshtml");
+            }
+
+            usuario_evento usuario_evento = new usuario_evento
+            {
+                Id_Evento = 1,
+                Id_Usuario = SessionHelper.UsuarioLogueado.Id,
+                Activo = true,
+                Cantidad = cantidad,
+                Fecha_Creacion = DateTime.Now,
+            };
+            var success = RNEvento.ComprarEntrada(usuario_evento);
+            if (!success)
+            {
+                ViewData["Error"] = "Surgio un error intentado comprar la entrada. Revise los datos e intente de nuevo.";
+                return View("~/Views/Evento/Evento.cshtml");
+            }
+
+            return View("~/Views/Home/Index.cshtml");
+
+        }
     }
 
 }

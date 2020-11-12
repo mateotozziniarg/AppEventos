@@ -23,6 +23,7 @@
       <End Role="usuario" EntitySet="usuario" />
       <End Role="evento" EntitySet="evento" />
     </AssociationSet>
+    <EntitySet Name="usuario_evento" EntityType="testModel.usuario_evento" />
   </EntityContainer>
   <EntityType Name="evento">
     <Key>
@@ -55,4 +56,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="usuario_evento">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Evento" Type="Int32" Nullable="false" />
+    <Property Name="Id_Usuario" Type="Int32" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <Property Name="Cantidad" Type="Int32" Nullable="false" />
+    <Property Name="Fecha_Creacion" Type="DateTime" Nullable="false" />
+  </EntityType>
 </Schema>
