@@ -16,5 +16,15 @@ namespace AppEventos
         {
             return false;
         }
+        public bool DarAltaVendedor()
+        {
+            if (this.Id == 0) { return false; }
+            return false;
+        }
+
+        public List<evento> GetEventosComprados() {
+            var eventos = RNUsuario.getEventosComprados(this.Id);
+            return eventos;
+        }
     }
 }

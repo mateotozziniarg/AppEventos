@@ -90,5 +90,45 @@ namespace AppEventos.Controllers
             ViewBag.Error = "Surgio un error.";
             return View();
         }
+
+        public ActionResult AltaVendedor()
+        {
+
+            if (Session["UsuarioLogeado"] == null)
+            {
+                return View("~/Views/Login/Login.cshtml");
+            }
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AltaVendedor(String descripcion)
+        {
+            if (Session["UsuarioLogeado"] == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+            var user = RNUsuario.Buscar(SessionHelper.UsuarioLogueado.Id);
+
+            if (descripcion == "") {
+                ViewBag.Error = "Por favor incluya una descripción.";
+                return View();
+            }
+            user.Descripcion = descripcion;
+            user.Vendedor = true;
+            user.Save();
+
+            return View();
+        }
+
+        //public ActionResult AltaVendedor(String descripcion)
+        //{
+        //    if (SessionHelper.UsuarioLogueado != null) {
+        //        var user = RNUsuario.Buscar(SessionHelper.UsuarioLogueado.Id);
+        //    }
+        //    return View();
+        //}
+
+
     }
 }

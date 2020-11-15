@@ -43,6 +43,7 @@
     <Property Name="Imagen_portada" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
     <Property Name="Precio" Type="Single" Nullable="false" />
     <NavigationProperty Name="usuario" Relationship="testModel.evento_ibfk_1" FromRole="evento" ToRole="usuario" />
+    <Property Name="Fecha_Creacion" Type="DateTime" Nullable="false" />
   </EntityType>
   <Association Name="evento_ibfk_1">
     <End Type="testModel.usuario" Role="usuario" Multiplicity="1" />

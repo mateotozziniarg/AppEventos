@@ -16,7 +16,8 @@
     <Property Name="Fecha_hasta" Type="date" Nullable="false" />
     <Property Name="Ubicacion" Type="text" />
     <Property Name="Imagen_portada" Type="text" />
-    <Property Name="Precio" Type="double" Nullable="false" />
+    <Property Name="Precio" Type="float" Nullable="false" />
+    <Property Name="Fecha_Creacion" Type="date" Nullable="false" />
   </EntityType>
   <EntityType Name="usuario">
     <Key>

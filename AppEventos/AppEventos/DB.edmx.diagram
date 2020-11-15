@@ -8,7 +8,7 @@
         <EntityTypeShape EntityType="testModel.usuario" Width="2.5" PointX="0.5" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="testModel.evento" Width="1.5" PointX="5.75" PointY="0.875" />
         <AssociationConnector Association="testModel.evento_ibfk_1" />
-        <EntityTypeShape EntityType="testModel.usuario_evento" Width="1.5" PointX="3" PointY="4.375" />
+        <EntityTypeShape EntityType="testModel.usuario_evento" Width="2.125" PointX="3" PointY="4.875" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

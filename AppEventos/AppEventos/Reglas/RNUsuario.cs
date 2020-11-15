@@ -118,6 +118,7 @@ namespace AppEventos.Reglas
                         user.Nombre = usuario.Nombre;
                         user.Apellido = usuario.Apellido;
                         user.Descripcion = usuario.Descripcion;
+                        user.Vendedor = usuario.Vendedor;
                         db.SaveChanges();
                     }
                 }
@@ -147,6 +148,19 @@ namespace AppEventos.Reglas
             {
                 return false;
             }
+        }
+
+        public static List<evento> getEventosComprados(int idUsuario) {
+            if (idUsuario == 0)
+                return null;
+            List<evento> eventos = new List<evento>();
+            using (eventsEntities1 db = new eventsEntities1()) {
+                var eventosUsuario = db.usuario_evento.Where(x => x.Id_Usuario == idUsuario && x.Activo);
+                foreach (usuario_evento uevento in eventosUsuario) {
+                    eventos.Add(RNEvento.getById(uevento.Id_Evento));
+                }
+            }
+            return eventos;
         }
 
 

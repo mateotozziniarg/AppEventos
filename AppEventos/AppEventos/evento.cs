@@ -27,6 +27,7 @@ namespace AppEventos
         public string Ubicacion { get; set; }
         public string Imagen_portada { get; set; }
         public float Precio { get; set; }
+        public System.DateTime Fecha_Creacion { get; set; }
     
         public virtual usuario usuario { get; set; }
     }

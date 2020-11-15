@@ -32,7 +32,6 @@ C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\roslyn\VBCSCom
 C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\Antlr3.Runtime.dll
 C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\Newtonsoft.Json.dll
 C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\System.Web.Helpers.dll
 C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\System.Web.Mvc.dll
 C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\System.Web.Optimization.dll
@@ -48,7 +47,6 @@ C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\System.Web.Raz
 C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\System.Web.WebPages.xml
 C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\System.Web.WebPages.Deployment.xml
 C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\System.Web.WebPages.Razor.xml
-C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\Newtonsoft.Json.xml
 C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\Antlr3.Runtime.pdb
 C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\es\System.Web.Helpers.resources.dll
@@ -70,7 +68,6 @@ C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\Microsoft.SqlS
 C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
 C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\Microsoft.Build.dll
 C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\Microsoft.Build.Framework.dll
-C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\System.Collections.Immutable.dll
 C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\System.Text.Json.dll
 C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\System.Memory.dll
 C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\System.Threading.Tasks.Dataflow.dll
@@ -216,17 +213,8 @@ C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\Renci.SshNet.d
 C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\System.Buffers.dll
 C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\Ubiety.Dns.Core.dll
 C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\Zstandard.Net.dll
-C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\Google.Protobuf.xml
-C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\K4os.Compression.LZ4.xml
-C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\K4os.Compression.LZ4.Streams.xml
-C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\K4os.Hash.xxHash.xml
 C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\MySql.Data.xml
 C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\MySql.Data.EntityFramework.xml
-C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\Renci.SshNet.xml
-C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\System.Buffers.xml
-C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\System.Memory.xml
-C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\System.Numerics.Vectors.xml
-C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\Microsoft.Bcl.HashCode.dll
 C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\Microsoft.EntityFrameworkCore.Abstractions.dll
 C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\Microsoft.EntityFrameworkCore.dll
@@ -242,10 +230,8 @@ C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\Microsoft.Exte
 C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\Microsoft.Extensions.Logging.dll
 C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\Microsoft.Extensions.Options.dll
 C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\Microsoft.Extensions.Primitives.dll
-C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\MySql.Data.EntityFrameworkCore.dll
 C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\System.ComponentModel.Annotations.dll
 C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\System.Diagnostics.DiagnosticSource.dll
-C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\Microsoft.Bcl.AsyncInterfaces.xml
 C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\Microsoft.Bcl.HashCode.xml
 C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\Microsoft.EntityFrameworkCore.xml
 C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\Microsoft.EntityFrameworkCore.Abstractions.xml
@@ -261,10 +247,6 @@ C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\Microsoft.Exte
 C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\Microsoft.Extensions.Logging.Abstractions.xml
 C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\Microsoft.Extensions.Options.xml
 C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\Microsoft.Extensions.Primitives.xml
-C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\MySql.Data.EntityFrameworkCore.xml
-C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\System.Collections.Immutable.xml
-C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\System.Diagnostics.DiagnosticSource.xml
-C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\System.Threading.Tasks.Extensions.xml
 C:\Users\Damian\Documents\GitHub\appeventos\AppEventos\AppEventos\bin\AppEventos.dll.config
 C:\Users\Damian\Documents\GitHub\appeventos\AppEventos\AppEventos\bin\AppEventos.dll
 C:\Users\Damian\Documents\GitHub\appeventos\AppEventos\AppEventos\bin\AppEventos.pdb
@@ -413,3 +395,5 @@ C:\Users\fleir\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\Microsoft.E
 C:\Users\fleir\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\MySql.Data.xml
 C:\Users\fleir\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\MySql.Data.EntityFramework.xml
 C:\Users\fleir\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\MySql.Web.xml
+C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\MySql.Web.dll
+C:\Users\PC\Documents\GitHub\AppEventos\AppEventos\AppEventos\bin\MySql.Web.xml

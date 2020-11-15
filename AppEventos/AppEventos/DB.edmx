@@ -21,7 +21,8 @@
           <Property Name="Fecha_hasta" Type="date" Nullable="false" />
           <Property Name="Ubicacion" Type="text" />
           <Property Name="Imagen_portada" Type="text" />
-          <Property Name="Precio" Type="double" Nullable="false" />
+          <Property Name="Precio" Type="float" Nullable="false" />
+          <Property Name="Fecha_Creacion" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="usuario">
           <Key>
@@ -117,6 +118,7 @@
           <Property Name="Imagen_portada" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
           <Property Name="Precio" Type="Single" Nullable="false" />
           <NavigationProperty Name="usuario" Relationship="testModel.evento_ibfk_1" FromRole="evento" ToRole="usuario" />
+          <Property Name="Fecha_Creacion" Type="DateTime" Nullable="false" />
         </EntityType>
         <Association Name="evento_ibfk_1">
           <End Type="testModel.usuario" Role="usuario" Multiplicity="1" />
@@ -166,6 +168,7 @@
           <EntitySetMapping Name="evento">
             <EntityTypeMapping TypeName="testModel.evento">
               <MappingFragment StoreEntitySet="evento">
+                <ScalarProperty Name="Fecha_Creacion" ColumnName="Fecha_Creacion" />
                 <ScalarProperty Name="Precio" ColumnName="Precio" />
                 <ScalarProperty Name="Imagen_portada" ColumnName="Imagen_portada" />
                 <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />

@@ -31,15 +31,15 @@ namespace AppEventos.Controllers
             }
             else
             {
-                //Session["UsuarioLogeado"] = userLoged;
-                //ViewBag.Usuario = Session["UsuarioLogeado"];
                 SessionHelper.UsuarioLogueado = userLoged;
+                var eventos = userLoged.GetEventosComprados();
+                SessionHelper.EventosUsuario = eventos;
                 return RedirectToAction("Index", "Home");
             }
         }
         public ActionResult Logout() {
             Session["UsuarioLogeado"] = null;
-            return View("~/Views/Home/Index.cshtml");
+            return RedirectToAction("Index", "Home");
         }
         public ActionResult Register()
         {

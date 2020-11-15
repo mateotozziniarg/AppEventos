@@ -34,6 +34,7 @@ namespace AppEventos.Controllers
             }
             //Validacion de datos como : 
             if (Titulo.Length < 1) { ViewData["Error"] = "El titulo es obligatorio."; return View(); }
+            if (ImagenPortada == null) { ViewData["Error"] = "La imagen es obligatoria!"; return View(); }
 
             evento evento = new evento
             {
@@ -47,8 +48,8 @@ namespace AppEventos.Controllers
                 Fecha_desde = FechaDesde,
                 Fecha_hasta = FechaHasta,
                 Ubicacion = Ubicacion,
-                Imagen_portada = ImagenPortada.FileName
-                //Agregar fecha de creacion a la tabla modificar la clase y agregar aca fecha creacion = DateTime.Now;
+                Imagen_portada = ImagenPortada.FileName,
+                Fecha_Creacion = DateTime.Now
             };
             var success = RNEvento.CrearEvento(evento);
             if (!success)
@@ -83,20 +84,11 @@ namespace AppEventos.Controllers
         public ActionResult Evento(int id)
         {
             var Evento = RNEvento.getById(id);
+            SessionHelper.EventoActual = Evento;
             var Usuario = RNUsuario.Buscar(Evento.Id_autor);
 
             ViewData["UsuarioEvento"] = Usuario;
-
             return View(Evento);
-        }
-
-        [HttpPost]
-        public ActionResult AltaVendedor(String descripcion)
-        {
-            var user = RNUsuario.Buscar(SessionHelper.UsuarioLogueado.Id);
-
-
-            return View();
         }
 
         [HttpPost]
@@ -108,14 +100,17 @@ namespace AppEventos.Controllers
                 ViewData["SessionExpirada"] = "Para poder realizar una compra debes logearte.";
                 return View("~/Views/Login/Login.cshtml");
             }
-
+            if (cantidad == null) {
+                cantidad = 1;
+            }
             usuario_evento usuario_evento = new usuario_evento
             {
-                Id_Evento = 1,
+                Id = 0,
+                Id_Evento = SessionHelper.EventoActual.Id,
                 Id_Usuario = SessionHelper.UsuarioLogueado.Id,
                 Activo = true,
                 Cantidad = cantidad,
-                Fecha_Creacion = DateTime.Now,
+                Fecha_Creacion = DateTime.Now
             };
             var success = RNEvento.ComprarEntrada(usuario_evento);
             if (!success)
@@ -124,7 +119,7 @@ namespace AppEventos.Controllers
                 return View("~/Views/Evento/Evento.cshtml");
             }
 
-            return View("~/Views/Home/Index.cshtml");
+            return RedirectToAction("Index", "Home");
 
         }
     }
