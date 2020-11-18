@@ -8,6 +8,7 @@ using AppEventos.Reglas;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
 using System.IO;
+using System.Web.Routing;
 
 namespace AppEventos.Controllers
 {
@@ -81,12 +82,14 @@ namespace AppEventos.Controllers
 
             return RedirectToAction("Index", "Home");
         }
-        public ActionResult Evento(int id)
+        public ActionResult Evento(int id, String errorMsg = "")
         {
             var Evento = RNEvento.getById(id);
             SessionHelper.EventoActual = Evento;
             var Usuario = RNUsuario.Buscar(Evento.Id_autor);
-
+            if (errorMsg != "") {
+                ViewData["ErrorMessage"] = errorMsg;
+            }
             ViewData["UsuarioEvento"] = Usuario;
             return View(Evento);
         }
@@ -107,8 +110,11 @@ namespace AppEventos.Controllers
             if(entradas + cantidad > SessionHelper.EventoActual.Tope_gente)
              {
                 ViewData["ErrorMessage"] = "El evento ya alcanzo el maximo de entradas vendidas";
-                return RedirectToAction("Index", "Home");
-             }
+                //return RedirectToAction("Evento", "Evento");
+                return RedirectToAction("Evento", new RouteValueDictionary(
+                          new { controller = "Evento", action = "Evento", id = SessionHelper.EventoActual.Id, errorMsg = "El evento ya alcanzo el maximo de entradas vendidas" })
+                        );
+            }
             usuario_evento usuario_evento = new usuario_evento
             {
                 Id = 0,
