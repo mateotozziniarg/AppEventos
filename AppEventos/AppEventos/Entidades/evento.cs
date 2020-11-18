@@ -12,5 +12,19 @@
             var autor = RNUsuario.Buscar(this.Id_autor);
             return autor.Nombre;
         }
+
+        public int topeEntradas()
+        {
+            
+            List<usuario_evento> usuario_Evento = RNEvento.GetEntradas(this);
+
+            int cantidad = 0;
+            foreach (usuario_evento UE in usuario_Evento) 
+            {
+                cantidad += UE.Cantidad;  
+            }
+            return cantidad;
+
+        }
     }
 }

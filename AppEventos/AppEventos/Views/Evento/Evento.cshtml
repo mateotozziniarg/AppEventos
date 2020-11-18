@@ -6,9 +6,10 @@
 
 
 @model evento
+
 <h1>@ViewData["Title"]</h1>
 
-<div class="container col-12 " style="display: inline-block !important; width: 100%; vertical-align: top;" >
+<div class="container col-12 " style="display: inline-block !important; width: 100%; vertical-align: top;">
 
 
     <div class="form-group col-lg-12">
@@ -63,12 +64,16 @@
         </div>
 
         <div>
-            <form action="@Url.Action("ComprarEntrada", "Evento")" method="post" >
-                <input type="number" name="cantidad" id="cantidad" min="1" max="4"/> 
+            <form action="@Url.Action("ComprarEntrada", "Evento")" method="post">
+                <input type="number" name="cantidad" id="cantidad" min="1" max="4" />
                 <button type="submit" class="btn btn-primary">Comprar Entrada</button>
             </form>
+            <div class="alert alert-danger" id="alertLogin" @{if (ViewData["ErrorMessage"] == null) { <text> style='display:none' </text>  } }>
+                @ViewData["ErrorMessage"]
+            </div>
         </div>
         <div>
             <a href="~/"><button class="btn btn-primary" style="float:right; display:inline-flex">Volver</button></a>
         </div>
     </div>
+</div>

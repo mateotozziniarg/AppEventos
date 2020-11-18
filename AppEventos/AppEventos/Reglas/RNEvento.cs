@@ -116,5 +116,22 @@ namespace AppEventos.Reglas
             }
         }
 
+        public static List<usuario_evento> GetEntradas(evento evento)
+        {
+            try
+            {
+                using(eventsEntities1 db = new eventsEntities1())
+                {
+                    List < usuario_evento > usuario_Evento = db.usuario_evento.Where(x => x.Id_Evento == evento.Id).ToList();
+                    return usuario_Evento;
+                }
+                
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
     }
 }

@@ -103,6 +103,12 @@ namespace AppEventos.Controllers
             if (cantidad == null) {
                 cantidad = 1;
             }
+            int entradas = SessionHelper.EventoActual.topeEntradas();
+            if(entradas + cantidad > SessionHelper.EventoActual.Tope_gente)
+             {
+                ViewData["ErrorMessage"] = "El evento ya alcanzo el maximo de entradas vendidas";
+                return RedirectToAction("Index", "Home");
+             }
             usuario_evento usuario_evento = new usuario_evento
             {
                 Id = 0,
@@ -116,7 +122,7 @@ namespace AppEventos.Controllers
             if (!success)
             {
                 ViewData["Error"] = "Surgio un error intentado comprar la entrada. Revise los datos e intente de nuevo.";
-                return View("~/Views/Evento/Evento.cshtml");
+                return View("~/Views/Evento/Evento.cshtml",SessionHelper.EventoActual.Id);
             }
 
             return RedirectToAction("Index", "Home");
