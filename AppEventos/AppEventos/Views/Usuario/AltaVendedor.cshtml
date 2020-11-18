@@ -1,20 +1,31 @@
-﻿
-@{
-    ViewBag.Title = "AltaVendedor";
+﻿@{
+    ViewData["Title"] = "AltaVendedor";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div>
-    <h2>AltaVendedor</h2>
-    
+    <h1>@ViewData["Title"]</h1>
+
     <h6>Para darte de alta de vendedor vamos a pedirte una pequeña descripción tuya contando tu trayectoria y lo que ofreces.</h6>
 
-    <form method="post">
-        <input name="Descripcion" />
-        <input type="submit" />
-    </form>
-
+    <div class="main-layout">
+        <div class="card">
+            <div class="card-body">
+                <form method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Ingresar descripcion de Vendedor</label>
+                            <input type="text" class="form-control" name="descripcion">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <a href="~/Home/Index"><button type="button" class="btn btn-secondary">Cancelar</button></a>
+                        <a href="~/Home/Index"><button type="submit" class="btn btn-success">Guardar</button></a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
-
 
 
