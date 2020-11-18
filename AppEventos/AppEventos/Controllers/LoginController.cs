@@ -39,6 +39,8 @@ namespace AppEventos.Controllers
         }
         public ActionResult Logout() {
             Session["UsuarioLogeado"] = null;
+            SessionHelper.EventosUsuario = null;
+            SessionHelper.EventoActual = null;
             return RedirectToAction("Index", "Home");
         }
         public ActionResult Register()
