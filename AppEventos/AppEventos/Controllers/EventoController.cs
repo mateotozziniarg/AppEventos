@@ -134,6 +134,12 @@ namespace AppEventos.Controllers
             return RedirectToAction("Index", "Home");
 
         }
+        public ActionResult MisEventos()
+        {
+            var misEventos = RNEvento.getByAutor(SessionHelper.UsuarioLogueado.Id);
+
+            return View(misEventos);
+        }
     }
 
 }

@@ -26,5 +26,12 @@
             return cantidad;
 
         }
+        public int entradasPorVender()
+        {
+
+            int cantidad = this.Tope_gente - this.topeEntradas();
+            return cantidad;
+
+        }
     }
 }
