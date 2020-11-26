@@ -1,68 +1,84 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
-    
+    ViewBag.Title = "Mis Eventos";
+
 }
 @model IEnumerable<AppEventos.evento>
+<div class="card-header">
 
-<!DOCTYPE html>
+    <h1>@ViewData["Title"]</h1>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-</head>
-<body>
+</div>
+    <!DOCTYPE html>
 
-    
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title></title>
+    </head>
+    <body>
 
-
-
-    <div class="row d-flex justify-content-around">
-        @if (Model != null)
-        {
-            foreach (var evento in Model)
-            {
-                var eventoAux = evento;
-                <text>
-                    <div class="card text-center col-xs-12 col-sm-6 col-md-4 col-lg-3 mt-5 mx-2 rounded border-light">
-                        <img src="~/Content/Eventos/@eventoAux.Id/@eventoAux.Imagen_portada" style="width: 10rem;margin: auto;">
-
-                        <div class="card-header">
-                            @eventoAux.getAutorName()
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">@eventoAux.Titulo</h5>
-                            <p class="card-text">@eventoAux.Resumen</p>
-                            <a href="@Url.Action("Evento", "Evento", new { id = eventoAux.Id })" class="btn btn-dark rounded">Ver Evento</a>
-                        </div>
-
-                    </div>
-
-                    <div class="form-row vertical-align: middle d-inline-flex">
-                    <div class="form-group col-3 d-inline-flex">
-                    <label class="lblForm">Nombre del Evento: @eventoAux.Titulo</label>
-                    </div>
-                    <div class="form-group col-3 d-inline-flex">
-                    <label class="lblForm">Entradas Totales: @eventoAux.Tope_gente</label>
-                    </div>
-                    <div class="form-group col-3 d-inline-flex">
-                    <label class="lblForm">Entradas Vendidas: @eventoAux.topeEntradas()</label>
-                    </div>
-                    <div class="form-group col-3 d-inline-flex">
-                    <label class="lblForm">Entradas por Vender: @eventoAux.entradasPorVender()</label>
-                    </div>
-                    </div>
+        <div class="main-layout">
+            <div class="container">
 
 
+            
 
-                </text>
+            <div class="container d-flex">
+                <div class="row d-flex justify-content">
+                    @if (Model != null)
+                    {
+                        foreach (var evento in Model)
+                        {
+                            var eventoAux = evento;
+                            <text>
+                                <div class="form-group col rounded border-light">
+                                    <img src="~/Content/Eventos/@eventoAux.Id/@eventoAux.Imagen_portada" style="width: 6rem;margin: auto;">
+
+                                </div>
+
+                                <div class="col-md-3 d-inline-flex">
+                                    <label class="lblForm">Nombre del Evento: @eventoAux.Titulo</label>
+                                </div>
+                                <div class="form-group col-md-2 d-inline-flex">
+                                    <label class="lblForm">Entradas Totales: @eventoAux.Tope_gente</label>
+                                </div>
+                                <div class="form-group col-md-2 d-inline-flex">
+                                    <label class="lblForm">Entradas Vendidas: @eventoAux.topeEntradas()</label>
+                                </div>
+                                <div class="form-group col-md-2 d-inline-flex">
+                                    <label class="lblForm">Entradas por Vender: @eventoAux.entradasPorVender()</label>
+                                </div>
 
 
+                                <div class="form-group col-md-1 align-middle d-inline-flex">
+                                    <a href="@Url.Action("Evento", "Evento", new { id = eventoAux.Id })" class="btn btn-dark align-middle rounded">Editar evento</a>
+                                </div>
+                                <hr>
 
-            }
+                            </text>
+                            <hr>
 
-        }
 
-    </div>
+                        }
+
+                    }
+
+                </div>
+            </div>
+
+        </div>
+</div>
+
+<style>
+    .inputForm {
+        display: inline;
+    }
+
+    .lblForm {
+        width: 100px;
+        text-align: center;
+    }
+</style>
+
 </body>
 </html>

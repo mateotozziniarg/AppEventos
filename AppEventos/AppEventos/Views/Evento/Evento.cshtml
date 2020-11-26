@@ -21,14 +21,11 @@
                     <label class="lblForm">Ubicación: @Model.Ubicacion</label>
 
                 </div>
-                <div class="card-body">
-                    <div class="alert alert-success">
-                        Fecha de inicio: @Model.Fecha_desde
-                    </div>
-                    <div class="alert alert-danger" role="alert">
-                        Fecha de finalización: @Model.Fecha_hasta
-                    </div>
 
+                <div class="alert alert-success justify-content-center">
+                    <img src="~/Content/Eventos/@Model.Id/@Model.Imagen_portada" class="img-responsive justify-content-center" style="width:100%; max-width: 600px;">
+                </div>
+                <div class="card-body">
                     <div class="form-row">
                         <div class="form-group col-12">
                             <label class="lblForm">@Model.Resumen</label>
@@ -38,6 +35,17 @@
                             <label class="lblForm">@Model.Descripcion</label>
 
                         </div>
+
+                        <div class="form-group col-12">
+                            <label class="lblForm">Fecha de inicio: @Model.Fecha_desde</label>
+
+                        </div>
+                        <div class="form-group col-12">
+
+                            <label class="lblForm"> Fecha de finalización: @Model.Fecha_hasta</label>
+
+                        </div>
+
                         <div class="form-group col-12">
                             <label class="lblForm">Tope gente: @Model.Tope_gente</label>
 
@@ -55,9 +63,10 @@
 
 
 
-            <div class="evento-container col-md-4">
-                <h1>Detalles del usuario</h1>
+            <div class="evento-container col-md-6">
+                <h2>¿Desea asistir al evento?</h2>
 
+                Comprar entradas para:
                 @Usuario.Imagen
 
                 @Usuario.Nombre
@@ -65,14 +74,15 @@
                 @Usuario.Apellido
 
                 @Usuario.Descripcion
-                
+
             </div>
         </div>
 
         <div>
             <form action="@Url.Action("ComprarEntrada", "Evento")" method="post">
+                Elige cantidad de 1 a 4
                 <input type="number" name="cantidad" id="cantidad" min="1" max="4" />
-                <button type="submit" class="btn btn-primary">Comprar Entrada</button>
+                <button type="submit" class="btn-lg btn-primary">Comprar Entrada</button>
             </form>
             <div class="alert alert-danger" id="alertLogin" @{if (ViewData["ErrorMessage"] == null) { <text> style='display:none' </text>  } }>
                 @ViewData["ErrorMessage"]
@@ -82,4 +92,5 @@
             <a href="~/"><button class="btn btn-primary" style="float:right; display:inline-flex">Volver</button></a>
         </div>
     </div>
+
 </div>
