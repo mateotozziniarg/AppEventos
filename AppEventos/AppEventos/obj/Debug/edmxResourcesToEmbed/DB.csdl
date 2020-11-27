@@ -15,6 +15,7 @@
     <Property Name="Descripcion" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Imagen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="evento" Relationship="testModel.evento_ibfk_1" FromRole="usuario" ToRole="evento" />
+    <Property Name="Administrador" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityContainer Name="eventsEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="usuario" EntityType="Self.usuario" />

@@ -133,5 +133,22 @@ namespace AppEventos.Reglas
             }
         }
 
+        public static bool CancelarEvento(int id) {
+            try {
+                using (eventsEntities1 db = new eventsEntities1()) {
+
+                    evento evento = db.evento.SingleOrDefault(x => x.Id == id);
+
+                    evento.Activo = false;
+
+                    db.SaveChanges();
+                }
+                return true;
+            }
+            catch {
+                return false;
+            }
+        }
+
     }
 }

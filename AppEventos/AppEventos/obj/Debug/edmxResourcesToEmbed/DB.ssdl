@@ -33,6 +33,7 @@
     <Property Name="Username" Type="varchar" MaxLength="200" Nullable="false" />
     <Property Name="Descripcion" Type="varchar" MaxLength="1000" Nullable="false" />
     <Property Name="Imagen" Type="varchar" MaxLength="200" />
+    <Property Name="Administrador" Type="bool" Nullable="false" />
   </EntityType>
   <EntityType Name="usuario_evento">
     <Key>

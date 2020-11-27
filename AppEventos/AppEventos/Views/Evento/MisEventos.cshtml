@@ -17,56 +17,69 @@
     </head>
     <body>
 
-        <div class="main-layout">
-            <div class="container">
-
-
-            
-
-            <div class="container d-flex">
-                <div class="row d-flex justify-content">
-                    @if (Model != null)
+<div class="main-layout">
+    <div class="container">
+        @if (ViewData["Alert"] != null)
+        {
+            <div class="alert alert-success" role="alert">
+                @ViewData["Alert"]
+            </div>
+        }
+        <div class="container d-flex">
+            <div class="row d-flex justify-content">
+                @if (Model != null)
+                {
+                    foreach (var evento in Model)
                     {
-                        foreach (var evento in Model)
-                        {
-                            var eventoAux = evento;
-                            <text>
-                                <div class="form-group col rounded border-light">
-                                    <img src="~/Content/Eventos/@eventoAux.Id/@eventoAux.Imagen_portada" style="width: 6rem;margin: auto;">
+                        var eventoAux = evento;
+                        <text>
+                            <div class="form-group col rounded border-light">
+                                <img src="~/Content/Eventos/@eventoAux.Id/@eventoAux.Imagen_portada" style="width: 6rem;margin: auto;">
 
-                                </div>
+                            </div>
 
-                                <div class="col-md-3 d-inline-flex">
-                                    <label class="lblForm">Nombre del Evento: @eventoAux.Titulo</label>
-                                </div>
-                                <div class="form-group col-md-2 d-inline-flex">
-                                    <label class="lblForm">Entradas Totales: @eventoAux.Tope_gente</label>
-                                </div>
-                                <div class="form-group col-md-2 d-inline-flex">
-                                    <label class="lblForm">Entradas Vendidas: @eventoAux.topeEntradas()</label>
-                                </div>
-                                <div class="form-group col-md-2 d-inline-flex">
-                                    <label class="lblForm">Entradas por Vender: @eventoAux.entradasPorVender()</label>
-                                </div>
+                            <div class="col-md-3 d-inline-flex">
+                                <label class="lblForm">Nombre del Evento: @eventoAux.Titulo</label>
+                            </div>
+                            <div class="form-group col-md-2 d-inline-flex">
+                                <label class="lblForm">Entradas Totales: @eventoAux.Tope_gente</label>
+                            </div>
+                            <div class="form-group col-md-2 d-inline-flex">
+                                <label class="lblForm">Entradas Vendidas: @eventoAux.topeEntradas()</label>
+                            </div>
+                            <div class="form-group col-md-2 d-inline-flex">
+                                <label class="lblForm">Entradas por Vender: @eventoAux.entradasPorVender()</label>
+                            </div>
 
 
-                                <div class="form-group col-md-1 align-middle d-inline-flex">
-                                    <a href="@Url.Action("Evento", "Evento", new { id = eventoAux.Id })" class="btn btn-dark align-middle rounded">Editar evento</a>
-                                </div>
-                                <hr>
-
-                            </text>
+                            <div class="form-group col-md-1 align-middle">
+                                <a href="@Url.Action("Evento", "Evento", new { id = eventoAux.Id })" class="btn btn-dark align-middle rounded" style="height:fit-content;">Ver</a>
+                                @if (evento.Activo)
+                                {
+                                    <a href="@Url.Action("CancelarEvento", "Evento", new { idEvento = eventoAux.Id })"
+                                       class="btn btn-dark align-middle rounded text-danger"
+                                       style="height:fit-content;">
+                                        Cancelar
+                                    </a>
+                                }
+                                else
+                                {
+                                    <p class="text-danger">Evento Cancelado</p>
+                                }
+                            </div>
                             <hr>
+                        </text>
+                        <hr>
 
-
-                        }
 
                     }
 
-                </div>
-            </div>
+                }
 
+            </div>
         </div>
+
+    </div>
 </div>
 
 <style>

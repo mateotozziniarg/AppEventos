@@ -2,6 +2,7 @@
     ViewBag.Title = "Detalles del evento";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var Usuario = (usuario)ViewData["UsuarioEvento"];
+    var usuarioLogeado = @AppEventos.Controllers.SessionHelper.UsuarioLogueado;
 }
 
 
@@ -15,19 +16,20 @@
     <div class="form-group col-lg-12">
         <div class="row">
 
-            <div class="card">
+            <div class="card" style="width:100%">
                 <div class="card-header">
                     <h3><strong>@Model.Titulo </strong></h3>
                     <label class="lblForm">Ubicación: @Model.Ubicacion</label>
 
                 </div>
 
-                <div class="alert alert-success justify-content-center">
-                    <img src="~/Content/Eventos/@Model.Id/@Model.Imagen_portada" class="img-responsive justify-content-center" style="width:100%; max-width: 600px;">
+                <div class="alert alert-success" style="text-align:center">
+                    <img src="~/Content/Eventos/@Model.Id/@Model.Imagen_portada" class="img-responsive" style="width:auto;max-width:300px;">
                 </div>
-                <div class="card-body">
-                    <div class="form-row">
+                <div class="card-body row">
+                    <div class="col-md-6">
                         <div class="form-group col-12">
+                            <h4>Sobre el evento</h4>
                             <label class="lblForm">@Model.Resumen</label>
 
                         </div>
@@ -56,6 +58,18 @@
                         </div>
                     </div>
 
+                    <div class="col-md-6">
+                        <h4>Conoce al instructor</h4>
+                        <img src="~/Content/Eventos/@Usuario.Id/@Usuario.Imagen" class="img-responsive justify-content-center" style="width:100%; max-width: 600px;">
+
+                        <h5>@Usuario.Nombre @Usuario.Apellido</h5>
+
+                        <h5></h5>
+
+                        <p>@Usuario.Descripcion</p>
+
+                    </div>
+
 
                 </div>
             </div>
@@ -66,15 +80,13 @@
             <div class="evento-container col-md-6">
                 <h2>¿Desea asistir al evento?</h2>
 
-                Comprar entradas para:
-                @Usuario.Imagen
-
-                @Usuario.Nombre
-
-                @Usuario.Apellido
-
-                @Usuario.Descripcion
-
+                @if (usuarioLogeado != null)
+                {
+                    <text>
+                        Comprar entradas para:
+                        @usuarioLogeado.Nombre @usuarioLogeado.Apellido
+                    </text>
+                }
             </div>
         </div>
 

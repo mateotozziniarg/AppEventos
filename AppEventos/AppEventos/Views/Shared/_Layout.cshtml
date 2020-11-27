@@ -26,7 +26,14 @@
                 @if (Session["UsuarioLogeado"] != null && AppEventos.Controllers.SessionHelper.UsuarioLogueado.Vendedor == true)
                 {
                     <a href="~/Evento/CrearEvento" class="btn btn-info d-inline-block"> Crear evento</a>
-                    <a href="~/Evento/MisEventos" class="btn btn-info d-inline-block"> Mis eventos</a>
+                    if (AppEventos.Controllers.SessionHelper.UsuarioLogueado.Administrador)
+                    {
+                        <a href="~/Evento/MisEventos" class="btn btn-info d-inline-block">Eventos</a>
+                    }
+                    else
+                    {
+                        <a href="~/Evento/MisEventos" class="btn btn-info d-inline-block"> Mis eventos</a>
+                    }
 
                 }
 

@@ -38,6 +38,7 @@
           <Property Name="Username" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="Descripcion" Type="varchar" MaxLength="1000" Nullable="false" />
           <Property Name="Imagen" Type="varchar" MaxLength="200" />
+          <Property Name="Administrador" Type="bool" Nullable="false" />
         </EntityType>
         <EntityType Name="usuario_evento">
           <Key>
@@ -90,6 +91,7 @@
           <Property Name="Descripcion" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Imagen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="evento" Relationship="testModel.evento_ibfk_1" FromRole="usuario" ToRole="evento" />
+          <Property Name="Administrador" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityContainer Name="eventsEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="usuario" EntityType="Self.usuario" />
@@ -152,6 +154,7 @@
           <EntitySetMapping Name="usuario">
             <EntityTypeMapping TypeName="testModel.usuario">
               <MappingFragment StoreEntitySet="usuario">
+                <ScalarProperty Name="Administrador" ColumnName="Administrador" />
                 <ScalarProperty Name="Imagen" ColumnName="Imagen" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Email" ColumnName="Email" />

@@ -4,6 +4,7 @@
     <EntitySetMapping Name="usuario">
       <EntityTypeMapping TypeName="testModel.usuario">
         <MappingFragment StoreEntitySet="usuario">
+          <ScalarProperty Name="Administrador" ColumnName="Administrador" />
           <ScalarProperty Name="Imagen" ColumnName="Imagen" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Email" ColumnName="Email" />

@@ -134,11 +134,39 @@ namespace AppEventos.Controllers
             return RedirectToAction("Index", "Home");
 
         }
-        public ActionResult MisEventos()
+        public ActionResult MisEventos(bool eventoCancelado = false)
         {
-            var misEventos = RNEvento.getByAutor(SessionHelper.UsuarioLogueado.Id);
+            if (eventoCancelado) {
+                ViewData["Alert"] = "El evento se cancelo con éxito";
+            }
+            if (SessionHelper.UsuarioLogueado == null || SessionHelper.UsuarioLogueado.Id == 0) {
+                return RedirectToAction("Index", "Home");
+            }
+            if (SessionHelper.UsuarioLogueado != null && SessionHelper.UsuarioLogueado.Id != 0)
+            {
+                var user = RNUsuario.Buscar(SessionHelper.UsuarioLogueado.Id);
+                SessionHelper.UsuarioLogueado = user;
+                SessionHelper.EventosUsuario = user.GetEventosComprados();
+            }
+            List<evento> misEventos = null;
+            if (SessionHelper.UsuarioLogueado.Administrador)
+            {
+                misEventos = RNEvento.getEventos();
+            }
+            else
+            {
+                misEventos = RNEvento.getByAutor(SessionHelper.UsuarioLogueado.Id);
+            }
+
 
             return View(misEventos);
+        }
+
+        public ActionResult CancelarEvento(int idEvento) {
+
+            var success = RNEvento.CancelarEvento(idEvento);
+
+            return RedirectToAction("MisEventos", "Evento", new { eventoCancelado = success });
         }
     }
 
