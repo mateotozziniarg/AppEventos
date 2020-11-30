@@ -6,6 +6,7 @@ using AppEventos.Models;
 using System.Web;
 using AppEventos.Reglas;
 using System.Web.Mvc;
+using System.IO;
 
 namespace AppEventos.Controllers
 {
@@ -48,12 +49,14 @@ namespace AppEventos.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Register(string Email, string Nombre, string Apellido, string Username, string Password)
+        public ActionResult Register(string Email, string Nombre, string Apellido, string Username, string Password, HttpPostedFileBase Imagen)
         {
             var emailUsed = RNUsuario.getByEmail(Email);
             var usernameUsed = RNUsuario.getByUsername(Username);
             if ( emailUsed != null) { ViewData["EmailUsed"] = "El correo electronico ya esta en uso"; return View("Login"); }
             if ( usernameUsed != null ) { ViewData["UsernameUsed"] = "El usuario ya esta en uso"; return View("Login"); }
+
+
             usuario usuarioRegister = new usuario
             {
                 Email = Email,
@@ -63,8 +66,31 @@ namespace AppEventos.Controllers
                 Password = Password,
                 Activo = true,
                 Vendedor = true,
-                Descripcion = ""
+                Descripcion = "",
+                Imagen = Imagen.FileName
+
             };
+
+            if (Imagen != null && Imagen.ContentLength > 0)
+            {
+                try
+                {
+                    string pathEvento = Server.MapPath("~/Content/Usuarios/" + usuarioRegister.Email);
+                    var di = new DirectoryInfo(pathEvento);
+                    if (!di.Exists)
+                        di.Create();
+
+                    string path = Path.Combine(pathEvento,
+                                               Path.GetFileName(Imagen.FileName));
+                    Imagen.SaveAs(path);
+                    ViewBag.Message = "File uploaded successfully";
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Message = "ERROR:" + ex.Message.ToString();
+                }
+            }
+
             try
             {
                 RNUsuario.Register(usuarioRegister);
@@ -75,6 +101,9 @@ namespace AppEventos.Controllers
                 ViewBag.Error = e;
                 return View("Login");
             }
+
+            
+
             //return Login(usuarioRegister.Username, usuarioRegister.Password);
         }
     }

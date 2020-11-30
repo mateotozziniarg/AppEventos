@@ -119,6 +119,7 @@ namespace AppEventos.Reglas
                         user.Apellido = usuario.Apellido;
                         user.Descripcion = usuario.Descripcion;
                         user.Vendedor = usuario.Vendedor;
+                        user.Imagen = usuario.Imagen;
                         db.SaveChanges();
                     }
                 }
