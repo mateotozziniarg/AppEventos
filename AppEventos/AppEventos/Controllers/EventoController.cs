@@ -139,7 +139,7 @@ namespace AppEventos.Controllers
             if (eventoCancelado) {
                 ViewData["Alert"] = "El evento se cancelo con éxito";
             }
-            if (SessionHelper.UsuarioLogueado == null || SessionHelper.UsuarioLogueado.Id == 0) {
+            if (SessionHelper.UsuarioLogueado == null || SessionHelper.UsuarioLogueado.Id == 0){
                 return RedirectToAction("Index", "Home");
             }
             if (SessionHelper.UsuarioLogueado != null && SessionHelper.UsuarioLogueado.Id != 0)
@@ -148,7 +148,9 @@ namespace AppEventos.Controllers
                 SessionHelper.UsuarioLogueado = user;
                 SessionHelper.EventosUsuario = user.GetEventosComprados();
             }
+
             List<evento> misEventos = null;
+
             if (SessionHelper.UsuarioLogueado.Administrador)
             {
                 misEventos = RNEvento.getEventos();

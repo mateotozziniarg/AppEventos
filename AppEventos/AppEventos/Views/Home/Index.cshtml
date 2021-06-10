@@ -36,7 +36,7 @@
     {
         foreach (var evento in Model)
         {
-            if (eventosUsuario == null)
+            if (eventosUsuario == null && evento.Activo)
             {
                 <text>
                     <div class="card text-center col-xs-12 col-sm-6 col-md-4 col-lg-3 mt-5 mx-2 rounded border-light">
@@ -59,7 +59,7 @@
             }
             else
             {
-                if (eventosUsuario.Find(x => x.Id == evento.Id) == null)
+                if (evento != null && eventosUsuario != null && eventosUsuario.Find(x => x.Id == evento.Id) == null && evento.Activo == true)
                 {
                     <text>
                         <div class="card text-center col-xs-12 col-sm-6 col-md-4 col-lg-3 mt-5 mx-2 rounded border-light">

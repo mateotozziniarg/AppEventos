@@ -44,10 +44,7 @@ namespace AppEventos.Controllers
             SessionHelper.EventoActual = null;
             return RedirectToAction("Index", "Home");
         }
-        public ActionResult Register()
-        {
-            return View();
-        }
+
         [HttpPost]
         public ActionResult Register(string Email, string Nombre, string Apellido, string Username, string Password, HttpPostedFileBase Imagen)
         {
